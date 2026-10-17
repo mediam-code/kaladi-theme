@@ -1,0 +1,125 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "g1": {
+          "type": "guide",
+          "settings": {
+            "title": "Pentru stropit",
+            "text": "Sticla, pe salate și pâine",
+            "link": "/products/olivi-sticla"
+          }
+        },
+        "g2": {
+          "type": "guide",
+          "settings": {
+            "title": "Pentru gătit zilnic",
+            "text": "Cutia de 3 L sau 5 L",
+            "link": "/products/rezerva-familiei"
+          }
+        },
+        "g3": {
+          "type": "guide",
+          "settings": {
+            "title": "De oferit",
+            "text": "Seturi cadou, și pentru firme",
+            "link": "/products/set-cadou-kaladi"
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3"
+      ]
+    },
+    "ticker": {
+      "type": "ticker",
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "text": "Livrare 24–48 h"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "text": "Card sau ramburs"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "text": "Retur 14 zile"
+          }
+        },
+        "t4": {
+          "type": "item",
+          "settings": {
+            "text": "Analize pe fiecare lot"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ]
+    },
+    "subscription": {
+      "type": "subscription",
+      "blocks": {
+        "k1": {
+          "type": "perk",
+          "settings": {
+            "icon": "−10%",
+            "title": "La fiecare livrare",
+            "text": "Automat, fără coduri."
+          }
+        },
+        "k2": {
+          "type": "perk",
+          "settings": {
+            "icon": "0 lei",
+            "title": "Livrare gratuită",
+            "text": "Mereu, indiferent de valoare."
+          }
+        },
+        "k3": {
+          "type": "perk",
+          "settings": {
+            "icon": "№1",
+            "title": "Primul la recolta nouă",
+            "text": "Abonații primesc lotul nou înaintea tuturor."
+          }
+        },
+        "k4": {
+          "type": "perk",
+          "settings": {
+            "icon": "⏸",
+            "title": "Pauză oricând",
+            "text": "Amâni sau anulezi din cont, dintr-un click."
+          }
+        }
+      },
+      "block_order": [
+        "k1",
+        "k2",
+        "k3",
+        "k4"
+      ],
+      "settings": {
+        "product": "rezerva-familiei",
+        "cta_link": "/products/rezerva-familiei"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ticker",
+    "subscription"
+  ]
+}

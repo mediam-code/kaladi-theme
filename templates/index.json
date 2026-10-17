@@ -1,0 +1,513 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "blocks": {
+        "c1": {
+          "type": "chip",
+          "settings": {
+            "text": "★ 4,84 · 19 recenzii eMAG"
+          }
+        },
+        "c2": {
+          "type": "chip",
+          "settings": {
+            "text": "Aciditate ≤ 0,3%"
+          }
+        },
+        "c3": {
+          "type": "chip",
+          "settings": {
+            "text": "Fără pesticide"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "settings": {
+        "cta1_link": "/products/olivi-sticla",
+        "cta2_link": "/#recolta"
+      }
+    },
+    "ticker": {
+      "type": "ticker",
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "text": "Cules cu mâna"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "text": "Presat la rece"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "text": "Koroneiki 100%"
+          }
+        },
+        "t4": {
+          "type": "item",
+          "settings": {
+            "text": "O singură livadă"
+          }
+        },
+        "t5": {
+          "type": "item",
+          "settings": {
+            "text": "Aur la Londra"
+          }
+        },
+        "t6": {
+          "type": "item",
+          "settings": {
+            "text": "Analize pe fiecare lot"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5",
+        "t6"
+      ]
+    },
+    "products": {
+      "type": "product-trio",
+      "blocks": {
+        "p1": {
+          "type": "product",
+          "settings": {
+            "product": "olivi-sticla",
+            "style": "sage",
+            "fallback_asset": "ai-bottle-500-studio.jpg",
+            "badge": "Cel mai vândut",
+            "eyebrow": "Pentru stropit",
+            "title": "Olivi în sticlă",
+            "text": "Pe salate, pâine caldă, pește. Fructat, cu final ușor picant.",
+            "sizes": "250 ml – 1 L"
+          }
+        },
+        "p2": {
+          "type": "product",
+          "settings": {
+            "product": "rezerva-familiei",
+            "style": "fresh",
+            "fallback_asset": "ai-tin-5l-kitchen.jpg",
+            "badge": "Abonament −10%",
+            "eyebrow": "Pentru gătit zilnic",
+            "title": "Rezerva familiei",
+            "text": "Cutie metalică ce ține lumina departe. Pentru tigaie și cuptor.",
+            "sizes": "3 L · 5 L",
+            "price_label": "5 L · 333 lei"
+          }
+        },
+        "p3": {
+          "type": "product",
+          "settings": {
+            "link": "/#recolta",
+            "style": "deep",
+            "fallback_asset": "ai-olive-grove.jpg",
+            "badge": "Precomandă · stoc limitat",
+            "eyebrow": "Ediție de recoltă",
+            "title": "Recolta Nouă 2027",
+            "text": "Primul ulei din sezon, verde și picant. Ajunge la tine în ianuarie.",
+            "sizes": "[mărime]",
+            "price_label": "Rezervă · [preț] lei"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ]
+    },
+    "steps": {
+      "type": "steps",
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "O singură livadă",
+            "text": "3.000+ măslini Koroneiki, la 400 m altitudine, lângă Kalamata."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Cules cu mâna",
+            "text": "Decembrie–ianuarie. Fără pesticide, doar îngrășăminte organice."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Presat în 12 ore",
+            "text": "La rece, sub 27°C, în presă certificată ecologic. Nefiltrat."
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "title": "La tine în 24–48 h",
+            "text": "Cu data recoltei și buletinul de analiză al lotului."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ]
+    },
+    "story": {
+      "type": "story",
+      "blocks": {
+        "founder": {
+          "type": "person",
+          "settings": {
+            "fallback_asset": "ai-oil-bread.jpg",
+            "note": "Foto: [fondatorul] în livadă",
+            "quote": "[Citatul fondatorului: de ce a ales familia Nikolopoulos.]",
+            "name": "[Nume fondator] · Kaladi, București"
+          }
+        },
+        "family": {
+          "type": "person",
+          "settings": {
+            "fallback_asset": "ai-harvest-hands.jpg",
+            "note": "Foto temporară · familia Nikolopoulos",
+            "quote": "[Citat din familie despre livadă și recoltă.]",
+            "name": "[Nume] · Nikolopoulos Estate, Kalamata"
+          }
+        },
+        "st1": {
+          "type": "stat",
+          "settings": {
+            "value": "70+",
+            "label": "ani de măslini"
+          }
+        },
+        "st2": {
+          "type": "stat",
+          "settings": {
+            "value": "3.000+",
+            "label": "măslini Koroneiki"
+          }
+        },
+        "st3": {
+          "type": "stat",
+          "settings": {
+            "value": "400 m",
+            "label": "altitudine"
+          }
+        },
+        "st4": {
+          "type": "stat",
+          "settings": {
+            "value": "1",
+            "label": "familie, exclusiv"
+          }
+        }
+      },
+      "block_order": [
+        "founder",
+        "family",
+        "st1",
+        "st2",
+        "st3",
+        "st4"
+      ],
+      "settings": {
+        "cta_link": "/pages/povestea"
+      }
+    },
+    "lot": {
+      "type": "lot-proof",
+      "blocks": {
+        "a1": {
+          "type": "award",
+          "settings": {
+            "fallback_asset": "award-london-2023.png",
+            "title": "Aur",
+            "sub": "London 2023"
+          }
+        },
+        "a2": {
+          "type": "award",
+          "settings": {
+            "fallback_asset": "award-london-2024.png",
+            "title": "Aur",
+            "sub": "London 2024"
+          }
+        },
+        "a3": {
+          "type": "award",
+          "settings": {
+            "fallback_asset": "award-global-stars-2024.png",
+            "title": "Global Stars",
+            "sub": "2024"
+          }
+        },
+        "r1": {
+          "type": "row",
+          "settings": {
+            "label": "Aciditate",
+            "value": "[0,2]%"
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "label": "Peroxizi",
+            "value": "[—] meq/kg"
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "label": "Polifenoli",
+            "value": "[—] mg/kg"
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "label": "Presat la",
+            "value": "[zz.ll.aaaa]"
+          }
+        }
+      },
+      "block_order": [
+        "a1",
+        "a2",
+        "a3",
+        "r1",
+        "r2",
+        "r3",
+        "r4"
+      ]
+    },
+    "preorder": {
+      "type": "preorder",
+      "blocks": {
+        "m1": {
+          "type": "month",
+          "settings": {
+            "month": "Noiembrie",
+            "text": "Se deschid precomenzile"
+          }
+        },
+        "m2": {
+          "type": "month",
+          "settings": {
+            "month": "Decembrie",
+            "text": "Cules și presare, live pe Instagram"
+          }
+        },
+        "m3": {
+          "type": "month",
+          "settings": {
+            "month": "Ianuarie",
+            "text": "Livrare către cei care au rezervat"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3"
+      ]
+    },
+    "subscription": {
+      "type": "subscription",
+      "blocks": {
+        "k1": {
+          "type": "perk",
+          "settings": {
+            "icon": "−10%",
+            "title": "La fiecare livrare",
+            "text": "Automat, fără coduri."
+          }
+        },
+        "k2": {
+          "type": "perk",
+          "settings": {
+            "icon": "0 lei",
+            "title": "Livrare gratuită",
+            "text": "Mereu, indiferent de valoare."
+          }
+        },
+        "k3": {
+          "type": "perk",
+          "settings": {
+            "icon": "№1",
+            "title": "Primul la recolta nouă",
+            "text": "Abonații primesc lotul nou înaintea tuturor."
+          }
+        },
+        "k4": {
+          "type": "perk",
+          "settings": {
+            "icon": "⏸",
+            "title": "Pauză oricând",
+            "text": "Amâni sau anulezi din cont, dintr-un click."
+          }
+        }
+      },
+      "block_order": [
+        "k1",
+        "k2",
+        "k3",
+        "k4"
+      ],
+      "settings": {
+        "product": "rezerva-familiei",
+        "cta_link": "/products/rezerva-familiei"
+      }
+    },
+    "reviews": {
+      "type": "reviews",
+      "blocks": {
+        "v1": {
+          "type": "review",
+          "settings": {}
+        },
+        "v2": {
+          "type": "review",
+          "settings": {}
+        },
+        "v3": {
+          "type": "review",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "v1",
+        "v2",
+        "v3"
+      ]
+    },
+    "gifts": {
+      "type": "gifts-b2b",
+      "settings": {
+        "gift_link": "/products/set-cadou-kaladi",
+        "b2b_link": "/pages/cadouri-corporate"
+      }
+    },
+    "journal": {
+      "type": "journal",
+      "blocks": {
+        "j1": {
+          "type": "post",
+          "settings": {
+            "fallback_asset": "blog-aciditate.jpg",
+            "tag": "Ghid",
+            "title": "Aciditatea uleiului de măsline: ce înseamnă și de ce contează",
+            "link": "/blogs/jurnal"
+          }
+        },
+        "j2": {
+          "type": "post",
+          "settings": {
+            "fallback_asset": "ai-greek-table.jpg",
+            "tag": "Rețetă",
+            "title": "Salată grecească de iarnă, cu ulei din recolta nouă",
+            "link": "/blogs/jurnal"
+          }
+        },
+        "j3": {
+          "type": "post",
+          "settings": {
+            "fallback_asset": "blog-kalamata.jpg",
+            "tag": "Origine",
+            "title": "Kalamata, reperul în calitatea uleiului de măsline",
+            "link": "/blogs/jurnal"
+          }
+        }
+      },
+      "block_order": [
+        "j1",
+        "j2",
+        "j3"
+      ],
+      "settings": {
+        "link": "/blogs/jurnal"
+      }
+    },
+    "journey": {
+      "type": "journey",
+      "settings": {
+        "cta_link": "/collections/all"
+      },
+      "blocks": {
+        "j1": {
+          "type": "step",
+          "settings": {
+            "fallback_asset": "ai-olive-grove.jpg",
+            "tag": "Messinia, 400 m",
+            "title": "O singură livadă",
+            "text": "3.000+ măslini Koroneiki pe dealurile de lângă Kalamata. O singură familie, de peste 70 de ani."
+          }
+        },
+        "j2": {
+          "type": "step",
+          "settings": {
+            "fallback_asset": "ai-harvest-hands.jpg",
+            "tag": "Decembrie – ianuarie",
+            "title": "Cules cu mâna",
+            "text": "Măslinele se culeg la maturitatea potrivită, fără pesticide, direct în coșuri."
+          }
+        },
+        "j3": {
+          "type": "step",
+          "settings": {
+            "fallback_asset": "ai-press-oil.jpg",
+            "tag": "Sub 12 ore",
+            "title": "Presat la rece",
+            "text": "Sub 27°C, în presă certificată ecologic. Nefiltrat, verde și picant."
+          }
+        },
+        "j4": {
+          "type": "step",
+          "settings": {
+            "fallback_asset": "ai-bottle-500-table.jpg",
+            "tag": "24–48 h",
+            "title": "Pe masa ta",
+            "text": "Adus direct în România, cu data recoltei și buletinul de analiză al lotului."
+          }
+        }
+      },
+      "block_order": [
+        "j1",
+        "j2",
+        "j3",
+        "j4"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "ticker",
+    "products",
+    "journey",
+    "story",
+    "lot",
+    "preorder",
+    "subscription",
+    "reviews",
+    "gifts",
+    "journal"
+  ]
+}

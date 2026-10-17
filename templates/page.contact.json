@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "header": {
+      "type": "page-header",
+      "settings": { "style": "sage", "eyebrow": "Contact", "heading": "Vorbim despre ulei.", "text": "Întrebări despre comenzi, abonament, analize sau cadouri pentru firme? Răspundem în cel mult o zi lucrătoare." }
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": { "anchor": "contact", "form_name": "Contact", "heading": "Scrie-ne", "text": "Sau sună-ne direct, în timpul programului.", "button": "Trimite mesajul" },
+      "blocks": {
+        "f1": { "type": "input", "settings": { "label": "Nume", "required": true, "width": "half" } },
+        "f2": { "type": "input", "settings": { "label": "Email", "type": "email", "required": true, "width": "half" } },
+        "f3": { "type": "input", "settings": { "label": "Telefon", "type": "tel", "width": "half" } },
+        "f4": { "type": "select", "settings": { "label": "Subiect", "options": "Comandă, Abonament, Produse și analize, Cadouri corporate, Altceva", "width": "half" } },
+        "f5": { "type": "textarea", "settings": { "label": "Mesaj", "required": true, "width": "full" } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4", "f5"]
+    },
+    "faq": {
+      "type": "faq",
+      "settings": { "heading": "Poate găsești răspunsul aici" },
+      "blocks": {
+        "q1": { "type": "item", "settings": { "question": "Unde e comanda mea?", "answer": "<p>Urmărește coletul din linkul primit pe email sau SMS. Dacă nu l-ai primit, scrie-ne cu numărul comenzii.</p>" } },
+        "q2": { "type": "item", "settings": { "question": "Cum opresc sau amân abonamentul?", "answer": "<p>Din <a href=\"/account\">contul tău</a>, la Abonamente. Poți amâna, schimba frecvența sau anula oricând.</p>" } },
+        "q3": { "type": "item", "settings": { "question": "Unde văd analizele lotului?", "answer": "<p>Pe pagina fiecărui produs, la „Fișa lotului”, sau scanând codul de pe sticlă.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3"]
+    }
+  },
+  "order": ["header", "form", "faq"]
+}

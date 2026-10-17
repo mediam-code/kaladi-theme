@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": { "type": "main-cart", "settings": {} },
+    "related": {
+      "type": "related-products",
+      "settings": { "heading": "Poate îți mai trebuie" },
+      "blocks": {
+        "r1": { "type": "product", "settings": { "product": "rezerva-familiei", "style": "fresh" } },
+        "r2": { "type": "product", "settings": { "product": "set-cadou-kaladi", "style": "deep" } }
+      },
+      "block_order": ["r1", "r2"]
+    }
+  },
+  "order": ["main", "related"]
+}

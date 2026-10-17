@@ -1,0 +1,16 @@
+{
+  "current": {
+    "color_fresh": "#D3E36A",
+    "color_deep": "#14301E",
+    "color_paper": "#FBFAF3",
+    "color_sage": "#E9EEDA",
+    "color_gold": "#C9AE6A",
+    "free_shipping_threshold": 200,
+    "shipping_note": "24–48 h · easybox",
+    "cart_upsell": "set-cadou-kaladi",
+    "font_pairing": "fraunces",
+    "popup_enabled": true,
+    "popup_code": "BUNVENIT10"
+  },
+  "presets": {}
+}

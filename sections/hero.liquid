@@ -1,0 +1,156 @@
+<section class="wrap pad-sm">
+  <div class="panel panel--fresh hero">
+    <div class="hero__copy">
+      <span class="chip chip--deep">{{ section.settings.eyebrow }}</span>
+      <h1 class="display">{{ section.settings.heading }}</h1>
+      <p class="lead">{{ section.settings.text }}</p>
+      <div class="btn-row">
+        <a href="{{ section.settings.cta1_link }}" class="btn btn--deep btn--lg">{{ section.settings.cta1_label }}</a>
+        <a href="{{ section.settings.cta2_link }}" class="btn btn--paper btn--lg">{{ section.settings.cta2_label }}</a>
+      </div>
+      <div class="chips">
+        {%- for block in section.blocks -%}
+          <span class="chip chip--glass" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+        {%- endfor -%}
+      </div>
+    </div>
+    <div class="hero__media">
+      <div class="hero__circle">
+        {%- render 'kimg', image: section.settings.image, fallback: 'ai-bottle-1l-limestone.jpg', alt: 'Sticla Olivi extravirgin pe piatră, cu ramură de măslin', eager: true -%}
+      </div>
+      {%- if section.settings.sticker_title != blank -%}
+        <div class="sticker sticker--round">
+          <small>{{ section.settings.sticker_eyebrow }}</small>
+          <strong>{{ section.settings.sticker_title | newline_to_br }}</strong>
+          <small>{{ section.settings.sticker_sub }}</small>
+        </div>
+      {%- endif -%}
+      <div class="sticker sticker--card">
+        <small>{{ section.settings.badge_eyebrow }}</small>
+        <strong>{{ section.settings.badge_value }}</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Kalamata · Messinia · Grecia"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Titlu",
+      "default": "Ulei verde, de la o singură familie."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Koroneiki din livada Nikolopoulos, cules cu mâna și presat la rece în 12 ore. Adus de noi în România, recoltă după recoltă."
+    },
+    {
+      "type": "text",
+      "id": "cta1_label",
+      "label": "Buton 1",
+      "default": "Cumpără uleiul"
+    },
+    {
+      "type": "url",
+      "id": "cta1_link",
+      "label": "Link buton 1"
+    },
+    {
+      "type": "text",
+      "id": "cta2_label",
+      "label": "Buton 2",
+      "default": "Rezervă recolta 2027"
+    },
+    {
+      "type": "url",
+      "id": "cta2_link",
+      "label": "Link buton 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagine produs"
+    },
+    {
+      "type": "text",
+      "id": "sticker_eyebrow",
+      "label": "Sticker — sus",
+      "default": "Medalie de aur"
+    },
+    {
+      "type": "textarea",
+      "id": "sticker_title",
+      "label": "Sticker — titlu",
+      "default": "London\nIOOC"
+    },
+    {
+      "type": "text",
+      "id": "sticker_sub",
+      "label": "Sticker — jos",
+      "default": "2023 · 2024"
+    },
+    {
+      "type": "text",
+      "id": "badge_eyebrow",
+      "label": "Badge — sus",
+      "default": "Presat în"
+    },
+    {
+      "type": "text",
+      "id": "badge_value",
+      "label": "Badge — valoare",
+      "default": "12 ore"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "chip",
+      "name": "Dovadă",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Aciditate ≤ 0,3%"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero",
+      "blocks": [
+        {
+          "type": "chip",
+          "settings": {
+            "text": "★ 4,84 · 19 recenzii eMAG"
+          }
+        },
+        {
+          "type": "chip",
+          "settings": {
+            "text": "Aciditate ≤ 0,3%"
+          }
+        },
+        {
+          "type": "chip",
+          "settings": {
+            "text": "Fără pesticide"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

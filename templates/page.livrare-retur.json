@@ -1,0 +1,38 @@
+{
+  "sections": {
+    "header": {
+      "type": "page-header",
+      "settings": { "style": "fresh", "eyebrow": "Ajutor", "heading": "Livrare și retur", "text": "Pe scurt: livrăm în 24–48 h, plătești cum vrei, iar produsele sigilate le poți returna în 14 zile." }
+    },
+    "cards": {
+      "type": "info-cards",
+      "blocks": {
+        "c1": { "type": "card", "settings": { "style": "white", "big": "24–48 h", "title": "Livrare prin curier", "text": "<p>Pentru comenzile plasate până la ora [14:00], în zilele lucrătoare. Livrăm prin [Sameday / FAN Courier], la ușă sau în easybox.</p>" } },
+        "c2": { "type": "card", "settings": { "style": "fresh", "big": "[200] lei", "title": "Livrare gratuită", "text": "<p>Peste acest prag, livrarea e gratuită. Sub prag, costul e de [X] lei și îl vezi în coș înainte să plătești. Abonamentele au livrare gratuită mereu.</p>" } },
+        "c3": { "type": "card", "settings": { "style": "sage", "big": "Card · ramburs", "title": "Cum plătești", "text": "<p>Card online (Visa, Mastercard, Apple Pay, Google Pay) sau numerar/card la curier, la livrare.</p>" } },
+        "c4": { "type": "card", "settings": { "style": "deep", "big": "14 zile", "title": "Retur", "text": "<p>Ai 14 zile de la primire pentru produsele sigilate, nedeschise. Detaliile sunt mai jos.</p>" } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4"]
+    },
+    "policy": {
+      "type": "rich-text",
+      "settings": {
+        "eyebrow": "Detalii",
+        "heading": "Returul, pas cu pas.",
+        "text": "<p><strong>1. Anunță-ne.</strong> Scrie-ne la office@kaladi.ro sau completează formularul de contact în cele 14 zile de la primirea coletului. Ne spui numărul comenzii și ce produse returnezi.</p><p><strong>2. Trimite coletul.</strong> Produsele trebuie să fie sigilate și nedeschise. Din motive de igienă și siguranță alimentară, nu putem primi înapoi sticle sau cutii desigilate. Costul transportului pentru retur e suportat de client, cu excepția cazului în care produsul a ajuns deteriorat sau greșit. [De confirmat]</p><p><strong>3. Primești banii.</strong> Rambursăm suma în cel mult 14 zile de la primirea returului, prin aceeași metodă de plată sau prin transfer bancar.</p><p><strong>Colet deteriorat?</strong> Dacă o sticlă s-a spart sau o cutie e lovită, trimite-ne o poză în 48 h de la livrare și îți trimitem alt produs, fără costuri.</p><p>Drepturile tale ca și consumator sunt cele prevăzute de OUG 34/2014. Termenii completi sunt în <a href=\"/policies/refund-policy\">Politica de retur</a>. [Textul legal final trebuie validat de un avocat sau consultant]</p>"
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "settings": { "heading": "Întrebări despre livrare" },
+      "blocks": {
+        "q1": { "type": "item", "settings": { "question": "Livrați și în afara României?", "answer": "<p>Momentan livrăm doar în România. [De confirmat]</p>" } },
+        "q2": { "type": "item", "settings": { "question": "Cum urmăresc coletul?", "answer": "<p>Primești pe email și SMS numărul AWB și un link de urmărire imediat ce coletul pleacă.</p>" } },
+        "q3": { "type": "item", "settings": { "question": "Cum ajunge uleiul să nu se spargă?", "answer": "<p>Sticlele sunt ambalate individual, cu protecție. Cutiile metalice de 3 L și 5 L călătoresc fără probleme.</p>" } },
+        "q4": { "type": "item", "settings": { "question": "Pot schimba adresa după ce am comandat?", "answer": "<p>Da, dacă ne scrii înainte să plece coletul. După predarea la curier, adresa se poate schimba doar din linkul de urmărire.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4"]
+    }
+  },
+  "order": ["header", "cards", "policy", "faq"]
+}

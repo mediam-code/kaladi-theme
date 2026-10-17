@@ -1,0 +1,33 @@
+<section class="wrap pad-lg stack-lg">
+  <div class="section-head">
+    <h2 class="h-xl">{{ section.settings.heading }} <em>{{ section.settings.heading_italic }}</em></h2>
+  </div>
+  <ol class="history">
+    {%- for block in section.blocks -%}
+      <li class="history__item{% if forloop.last %} history__item--now{% endif %}" {{ block.shopify_attributes }}>
+        <div class="history__media">
+          {%- render 'kimg', image: block.settings.image, fallback: block.settings.fallback_asset, alt: block.settings.title, width: 900 -%}
+        </div>
+        <div class="history__text">
+          <span class="history__year">{{ block.settings.year }}</span>
+          <strong>{{ block.settings.title }}</strong>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      </li>
+    {%- endfor -%}
+  </ol>
+</section>
+
+{% schema %}
+{
+  "name": "Cronologie",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titlu", "default": "70 de ani," },
+    { "type": "text", "id": "heading_italic", "label": "Titlu (italic)", "default": "o singură livadă." }
+  ],
+  "blocks": [
+    { "type": "moment", "name": "Moment", "settings": [ { "type": "text", "id": "year", "label": "An" }, { "type": "text", "id": "title", "label": "Titlu" }, { "type": "textarea", "id": "text", "label": "Text" }, { "type": "image_picker", "id": "image", "label": "Foto" }, { "type": "text", "id": "fallback_asset", "label": "Imagine din temă" } ] }
+  ],
+  "presets": [ { "name": "Cronologie" } ]
+}
+{% endschema %}

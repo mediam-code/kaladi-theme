@@ -1,0 +1,147 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign mf = product.metafields.custom
+-%}
+<section class="wrap pdp" data-product-section>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="{{ routes.root_url }}">Acasă</a> / <a href="/collections/all">Magazin</a> / {{ product.title }}</nav>
+
+  <div class="pdp__grid">
+    <div class="pdp__gallery">
+      <div class="pdp__stage">
+        <div class="pdp__main">
+          {%- assign first = product.media.first -%}
+          <img data-main-image src="{{ first | image_url: width: 1600 }}" alt="{{ first.alt | escape }}">
+        </div>
+        {%- if section.settings.sticker_title != blank -%}
+          <div class="sticker sticker--round sticker--sm">
+            <small>{{ section.settings.sticker_eyebrow }}</small>
+            <strong>{{ section.settings.sticker_title | newline_to_br }}</strong>
+            <small>{{ section.settings.sticker_sub }}</small>
+          </div>
+        {%- endif -%}
+      </div>
+      <div class="pdp__thumbs">
+        {%- for media in product.media limit: 6 -%}
+          <button type="button" class="pdp__thumb" data-thumb="{{ media | image_url: width: 1600 }}" data-alt="{{ media.alt | escape }}" aria-label="Arată: {{ media.alt | escape }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}">
+            {{ media | image_url: width: 300 | image_tag: alt: '' }}
+          </button>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="pdp__buy">
+      <div class="chips">
+        {%- if mf.use_case != blank -%}<span class="chip chip--fresh">{{ mf.use_case }}</span>{%- endif -%}
+        {%- if mf.harvest != blank -%}<span class="chip chip--sage">Recolta {{ mf.harvest }}</span>{%- endif -%}
+      </div>
+      <h1 class="display display--sm">{{ product.title }}</h1>
+      <a href="#recenzii" class="pdp__rating">★★★★★ {{ section.settings.rating }} <span>· {{ section.settings.review_count }} recenzii</span></a>
+      <div class="rte">{{ product.description }}</div>
+
+      {%- if mf.taste_fruity != blank -%}
+        <div class="taste">
+          {%- assign taste_labels = 'Fructat,Amărui,Picant' | split: ',' -%}
+          {%- assign taste_values = mf.taste_fruity | append: ',' | append: mf.taste_bitter | append: ',' | append: mf.taste_pungent | split: ',' -%}
+          {%- for label in taste_labels -%}
+            {%- assign v = taste_values[forloop.index0] | plus: 0 -%}
+            <div class="taste__item"><span>{{ label }}</span><div class="taste__bar">{% for i in (1..5) %}<i{% if i <= v %} class="on"{% endif %}></i>{% endfor %}</div></div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- form 'product', product, class: 'pdp__form', data-product-form: '' -%}
+        <input type="hidden" name="id" value="{{ current_variant.id }}" data-variant-id>
+        <input type="hidden" name="selling_plan" value="" data-selling-plan>
+
+        {%- unless product.has_only_default_variant -%}
+          <fieldset class="opt">
+            <legend>{{ product.options.first }} · <span data-variant-label>{{ current_variant.title }}</span></legend>
+            <div class="opt__grid">
+              {%- for variant in product.variants -%}
+                <button type="button" class="opt__pill" data-variant
+                  data-id="{{ variant.id }}" data-title="{{ variant.title | escape }}"
+                  data-price="{{ variant.price }}" data-available="{{ variant.available }}"
+                  aria-pressed="{% if variant.id == current_variant.id %}true{% else %}false{% endif %}"
+                  {% unless variant.available %}disabled{% endunless %}>{{ variant.title }}</button>
+              {%- endfor -%}
+            </div>
+          </fieldset>
+        {%- endunless -%}
+
+        <div class="mode" role="group" aria-label="Tip de cumpărare">
+          <button type="button" class="mode__opt" data-mode="once" aria-pressed="true">
+            <span><strong>O singură dată</strong><small>Fără angajament</small></span>
+            <strong data-price-once>{{ current_variant.price | money }}</strong>
+          </button>
+          {%- if product.selling_plan_groups.size > 0 -%}
+            {%- assign plan_group = product.selling_plan_groups.first -%}
+            {%- assign sub_pct = 100 | minus: section.settings.sub_discount -%}
+            <button type="button" class="mode__opt" data-mode="sub" aria-pressed="false">
+              <span><strong>Abonament · −{{ section.settings.sub_discount }}%</strong><small>Livrare gratuită · anulezi oricând</small></span>
+              <strong data-price-sub data-sub-pct="{{ sub_pct }}">{{ current_variant.price | times: sub_pct | divided_by: 100 | money }}</strong>
+            </button>
+            <div class="mode__plans" data-plans hidden>
+              {%- for plan in plan_group.selling_plans -%}
+                <button type="button" class="opt__pill opt__pill--sm" data-plan="{{ plan.id }}" aria-pressed="{% if forloop.index == 2 %}true{% else %}false{% endif %}">{{ plan.name }}</button>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="buy-row">
+          <div class="qty">
+            <button type="button" data-qty="-1" aria-label="Scade cantitatea">−</button>
+            <input type="number" name="quantity" value="1" min="1" max="20" aria-label="Cantitate" data-qty-input>
+            <button type="button" data-qty="1" aria-label="Crește cantitatea">+</button>
+          </div>
+          <button type="submit" class="btn btn--deep btn--lg btn--grow" data-add {% unless current_variant.available %}disabled{% endunless %}>
+            <span data-add-label>Adaugă în coș</span>
+          </button>
+        </div>
+      {%- endform -%}
+
+      <div class="ship" data-free-ship>
+        <span data-free-ship-text>Livrare gratuită peste {{ settings.free_shipping_threshold }} lei</span>
+        <div class="ship__bar"><i data-free-ship-bar style="width: 0%"></i></div>
+      </div>
+
+      <div class="chips chips--outline">
+        <span class="chip">{{ settings.shipping_note }}</span>
+        <span class="chip">Card sau ramburs</span>
+        <span class="chip">Retur 14 zile</span>
+      </div>
+
+      <div class="acc">
+        <details open>
+          <summary>Fișa lotului <span aria-hidden="true">+</span></summary>
+          <div>Lot #{{ mf.lot_code | default: '[cod]' }} · presat {{ mf.pressed_on | default: '[data]' }} · aciditate {{ mf.acidity | default: '[—]' }} · polifenoli {{ mf.polyphenols | default: '[—]' }} mg/kg
+            {%- if mf.lab_report != blank -%}<br><a href="{{ mf.lab_report }}">Descarcă buletinul (PDF)</a>{%- endif -%}</div>
+        </details>
+        {%- for block in section.blocks -%}
+          <details {{ block.shopify_attributes }}>
+            <summary>{{ block.settings.title }} <span aria-hidden="true">+</span></summary>
+            <div>{{ block.settings.content }}</div>
+          </details>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Produs — principal",
+  "settings": [
+    { "type": "text", "id": "rating", "label": "Notă afișată", "default": "4,84" },
+    { "type": "text", "id": "review_count", "label": "Număr recenzii", "default": "19" },
+    { "type": "range", "id": "sub_discount", "label": "Reducere abonament (%)", "min": 0, "max": 30, "step": 1, "default": 10 },
+    { "type": "text", "id": "sticker_eyebrow", "label": "Sticker — sus", "default": "Aur" },
+    { "type": "textarea", "id": "sticker_title", "label": "Sticker — titlu", "default": "London\nIOOC" },
+    { "type": "text", "id": "sticker_sub", "label": "Sticker — jos", "default": "2023 · 2024" }
+  ],
+  "blocks": [
+    { "type": "collapsible", "name": "Secțiune pliabilă", "settings": [ { "type": "text", "id": "title", "label": "Titlu" }, { "type": "richtext", "id": "content", "label": "Conținut" } ] },
+    { "type": "@app" }
+  ]
+}
+{% endschema %}

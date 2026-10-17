@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": { "type": "main-article", "settings": { "product": "olivi-sticla" } },
+    "related": {
+      "type": "related-products",
+      "settings": { "heading": "Gătește cu ele" },
+      "blocks": {
+        "r1": { "type": "product", "settings": { "product": "olivi-sticla", "style": "sage" } },
+        "r2": { "type": "product", "settings": { "product": "rezerva-familiei", "style": "fresh" } }
+      },
+      "block_order": ["r1", "r2"]
+    }
+  },
+  "order": ["main", "related"]
+}

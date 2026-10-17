@@ -1,0 +1,33 @@
+{
+  "sections": {
+    "header": {
+      "type": "page-header",
+      "settings": {
+        "style": "sage",
+        "eyebrow": "Jurnal",
+        "heading": "Rețete, ghiduri și vești din livadă.",
+        "text": "Cum alegi, cum păstrezi și cum gătești cu ulei de măsline extravirgin."
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {}
+    },
+    "cta": {
+      "type": "cta-band",
+      "settings": {
+        "style": "deep",
+        "heading": "Gătește cu uleiul din rețete.",
+        "cta1_label": "Vezi uleiurile",
+        "cta1_link": "/collections/all",
+        "cta2_label": "Rezervă recolta 2027",
+        "cta2_link": "/#recolta"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "main",
+    "cta"
+  ]
+}

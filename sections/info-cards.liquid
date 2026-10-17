@@ -1,0 +1,31 @@
+<section class="wrap pad-lg stack-md">
+  {%- if section.settings.heading != blank -%}<h2 class="h-xl">{{ section.settings.heading }}</h2>{%- endif -%}
+  <div class="info-cards">
+    {%- for block in section.blocks -%}
+      <div class="info-card info-card--{{ block.settings.style }}" {{ block.shopify_attributes }}>
+        {%- if block.settings.big != blank -%}<span class="info-card__big">{{ block.settings.big }}</span>{%- endif -%}
+        <strong>{{ block.settings.title }}</strong>
+        <div class="info-card__text">{{ block.settings.text }}</div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Carduri informații",
+  "settings": [ { "type": "text", "id": "heading", "label": "Titlu" } ],
+  "blocks": [
+    {
+      "type": "card", "name": "Card",
+      "settings": [
+        { "type": "select", "id": "style", "label": "Culoare", "default": "white", "options": [ { "value": "white", "label": "Alb" }, { "value": "sage", "label": "Verde pal" }, { "value": "fresh", "label": "Verde proaspăt" }, { "value": "deep", "label": "Verde închis" } ] },
+        { "type": "text", "id": "big", "label": "Valoare mare (ex. 24–48 h)" },
+        { "type": "text", "id": "title", "label": "Titlu" },
+        { "type": "richtext", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "Carduri informații" } ]
+}
+{% endschema %}

@@ -1,0 +1,85 @@
+{%- comment -%}
+  Formular de contact Shopify nativ ({% form 'contact' %}): mesajele ajung pe emailul magazinului.
+  Câmpurile sunt blocuri, deci formularul se poate folosi și pentru oferte B2B.
+{%- endcomment -%}
+<section class="wrap pad-lg" id="{{ section.settings.anchor }}">
+  <div class="contact">
+    <div class="contact__aside stack-md">
+      <h2 class="h-xl">{{ section.settings.heading }}</h2>
+      {%- if section.settings.text != blank -%}<p class="lead-sm">{{ section.settings.text }}</p>{%- endif -%}
+      {%- if section.settings.show_details -%}
+        <div class="contact__details">
+          {%- if section.settings.phone != blank -%}<a href="tel:{{ section.settings.phone | remove: ' ' }}"><small>Telefon</small><strong>{{ section.settings.phone }}</strong></a>{%- endif -%}
+          {%- if section.settings.email != blank -%}<a href="mailto:{{ section.settings.email }}"><small>Email</small><strong>{{ section.settings.email }}</strong></a>{%- endif -%}
+          {%- if section.settings.address != blank -%}<div><small>Adresă</small><strong>{{ section.settings.address }}</strong></div>{%- endif -%}
+          {%- if section.settings.hours != blank -%}<div><small>Program</small><strong>{{ section.settings.hours }}</strong></div>{%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="contact__card">
+      {%- form 'contact', id: 'contact_form', class: 'contact__form' -%}
+        {%- if form.posted_successfully? -%}
+          <div class="notice notice--ok" role="status"><strong>{{ section.settings.success_title }}</strong><span>{{ section.settings.success_text }}</span></div>
+        {%- elsif form.errors -%}
+          <div class="notice notice--err" role="alert">{{ form.errors | default_errors }}</div>
+        {%- endif -%}
+        <input type="hidden" name="contact[Formular]" value="{{ section.settings.form_name }}">
+        <div class="fields">
+          {%- for block in section.blocks -%}
+            {%- assign fid = 'f-' | append: section.id | append: '-' | append: forloop.index -%}
+            <div class="field field--{{ block.settings.width }}" {{ block.shopify_attributes }}>
+              <label for="{{ fid }}">{{ block.settings.label }}{% if block.settings.required %} <span aria-hidden="true">*</span>{% endif %}</label>
+              {%- case block.type -%}
+                {%- when 'textarea' -%}
+                  <textarea id="{{ fid }}" name="contact[{{ block.settings.label }}]" rows="5" placeholder="{{ block.settings.placeholder }}" {% if block.settings.required %}required{% endif %}></textarea>
+                {%- when 'select' -%}
+                  <select id="{{ fid }}" name="contact[{{ block.settings.label }}]" {% if block.settings.required %}required{% endif %}>
+                    {%- assign opts = block.settings.options | split: ',' -%}
+                    {%- for o in opts -%}<option value="{{ o | strip }}">{{ o | strip }}</option>{%- endfor -%}
+                  </select>
+                {%- else -%}
+                  {%- liquid
+                    assign ftype = block.settings.type | default: 'text'
+                    assign fname = 'contact[' | append: block.settings.label | append: ']'
+                    if ftype == 'email'
+                      assign fname = 'contact[email]'
+                    endif
+                  -%}
+                  <input id="{{ fid }}" type="{{ ftype }}" name="{{ fname }}" placeholder="{{ block.settings.placeholder }}" {% if block.settings.required %}required{% endif %}>
+              {%- endcase -%}
+            </div>
+          {%- endfor -%}
+        </div>
+        <label class="consent"><input type="checkbox" required><span>Sunt de acord cu <a href="/policies/privacy-policy">prelucrarea datelor</a> pentru a primi răspuns.</span></label>
+        <button type="submit" class="btn btn--deep btn--lg btn--block">{{ section.settings.button }}</button>
+      {%- endform -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Formular contact",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Ancoră (id)", "default": "formular" },
+    { "type": "text", "id": "form_name", "label": "Nume intern formular", "default": "Contact" },
+    { "type": "text", "id": "heading", "label": "Titlu", "default": "Scrie-ne" },
+    { "type": "textarea", "id": "text", "label": "Text" },
+    { "type": "checkbox", "id": "show_details", "label": "Arată datele de contact", "default": true },
+    { "type": "text", "id": "phone", "label": "Telefon", "default": "0722 309 937" },
+    { "type": "text", "id": "email", "label": "Email", "default": "office@kaladi.ro" },
+    { "type": "text", "id": "address", "label": "Adresă", "default": "Str. Viitorului 13A, Corbeanca, Ilfov" },
+    { "type": "text", "id": "hours", "label": "Program", "default": "[L–V, 9–18]" },
+    { "type": "text", "id": "button", "label": "Buton", "default": "Trimite mesajul" },
+    { "type": "text", "id": "success_title", "label": "Mesaj succes — titlu", "default": "Mulțumim!" },
+    { "type": "text", "id": "success_text", "label": "Mesaj succes — text", "default": "Am primit mesajul și îți răspundem în cel mult o zi lucrătoare." }
+  ],
+  "blocks": [
+    { "type": "input", "name": "Câmp text", "settings": [ { "type": "text", "id": "label", "label": "Etichetă", "default": "Nume" }, { "type": "select", "id": "type", "label": "Tip", "default": "text", "options": [ { "value": "text", "label": "Text" }, { "value": "email", "label": "Email" }, { "value": "tel", "label": "Telefon" }, { "value": "number", "label": "Număr" }, { "value": "date", "label": "Dată" } ] }, { "type": "text", "id": "placeholder", "label": "Placeholder" }, { "type": "checkbox", "id": "required", "label": "Obligatoriu", "default": false }, { "type": "select", "id": "width", "label": "Lățime", "default": "half", "options": [ { "value": "half", "label": "Jumătate" }, { "value": "full", "label": "Toată" } ] } ] },
+    { "type": "select", "name": "Listă", "settings": [ { "type": "text", "id": "label", "label": "Etichetă" }, { "type": "text", "id": "options", "label": "Opțiuni (separate prin virgulă)" }, { "type": "checkbox", "id": "required", "label": "Obligatoriu", "default": false }, { "type": "select", "id": "width", "label": "Lățime", "default": "half", "options": [ { "value": "half", "label": "Jumătate" }, { "value": "full", "label": "Toată" } ] } ] },
+    { "type": "textarea", "name": "Mesaj", "settings": [ { "type": "text", "id": "label", "label": "Etichetă", "default": "Mesaj" }, { "type": "text", "id": "placeholder", "label": "Placeholder" }, { "type": "checkbox", "id": "required", "label": "Obligatoriu", "default": false }, { "type": "select", "id": "width", "label": "Lățime", "default": "full", "options": [ { "value": "half", "label": "Jumătate" }, { "value": "full", "label": "Toată" } ] } ] }
+  ],
+  "presets": [ { "name": "Formular contact" } ]
+}
+{% endschema %}

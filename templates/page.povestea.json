@@ -1,0 +1,191 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "fallback_asset": "ai-olive-grove.jpg",
+        "eyebrow": "Povestea Kaladi",
+        "heading": "Un român a găsit o familie din Kalamata.",
+        "text": "Și de atunci aducem în România un singur ulei: al lor."
+      }
+    },
+    "intro": {
+      "type": "rich-text",
+      "settings": {
+        "eyebrow": "De unde a pornit",
+        "heading": "Căutam uleiul pe care îl mâncam în Grecia.",
+        "text": "<p>[Povestea fondatorului, în cuvintele lui: ce ulei găsea în România, ce a gustat în Messinia, cum a ajuns la familia Nikolopoulos și de ce a ales să lucreze doar cu ei. 3–4 paragrafe scurte, la persoana I.]</p><p>Kaladi nu are livadă proprie și nu amestecă uleiuri. Lucrăm cu o singură familie de producători din Messinia, aproape de Kalamata, și aducem în România doar ce presează ei la fiecare recoltă.</p>",
+        "center": false
+      }
+    },
+    "history": {
+      "type": "history-timeline",
+      "blocks": {
+        "h1": {
+          "type": "moment",
+          "settings": {
+            "year": "[1950/1960]",
+            "title": "Primii măslini",
+            "text": "Familia Nikolopoulos începe să cultive măslini Koroneiki în Messinia. [An de confirmat cu familia]",
+            "fallback_asset": "ai-olive-branch.jpg"
+          }
+        },
+        "h2": {
+          "type": "moment",
+          "settings": {
+            "year": "[an]",
+            "title": "Livada crește",
+            "text": "Livada ajunge la peste 3.000 de măslini, la 400 m altitudine, la ~30 km de Kalamata.",
+            "fallback_asset": "ai-harvest-hands.jpg"
+          }
+        },
+        "h3": {
+          "type": "moment",
+          "settings": {
+            "year": "[an]",
+            "title": "Presa proprie, certificată ecologic",
+            "text": "Măslinele sunt presate la rece, sub 27°C, în maximum 12 ore de la cules.",
+            "fallback_asset": "ai-press-oil.jpg"
+          }
+        },
+        "h4": {
+          "type": "moment",
+          "settings": {
+            "year": "2024",
+            "title": "Kaladi aduce uleiul în România",
+            "text": "Același ulei, cu analize pe fiecare lot și medalii de aur la London IOOC 2023 și 2024.",
+            "fallback_asset": "ai-bottle-1l-limestone.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "h1",
+        "h2",
+        "h3",
+        "h4"
+      ]
+    },
+    "people": {
+      "type": "story",
+      "settings": {
+        "heading": "Doi oameni, un ulei.",
+        "heading_italic": "Fără intermediari.",
+        "cta_label": "Vezi uleiurile",
+        "cta_link": "/collections/all"
+      },
+      "blocks": {
+        "founder": {
+          "type": "person",
+          "settings": {
+            "fallback_asset": "ai-oil-bread.jpg",
+            "note": "Foto: [fondatorul]",
+            "quote": "[Citatul fondatorului.]",
+            "name": "[Nume fondator] · Kaladi, București"
+          }
+        },
+        "family": {
+          "type": "person",
+          "settings": {
+            "fallback_asset": "ai-harvest-hands.jpg",
+            "note": "Foto temporară · familia Nikolopoulos",
+            "quote": "[Citat din familie.]",
+            "name": "[Nume] · Nikolopoulos Estate, Kalamata"
+          }
+        },
+        "st1": {
+          "type": "stat",
+          "settings": {
+            "value": "70+",
+            "label": "ani de măslini"
+          }
+        },
+        "st2": {
+          "type": "stat",
+          "settings": {
+            "value": "3.000+",
+            "label": "măslini Koroneiki"
+          }
+        },
+        "st3": {
+          "type": "stat",
+          "settings": {
+            "value": "12 h",
+            "label": "de la cules la presă"
+          }
+        },
+        "st4": {
+          "type": "stat",
+          "settings": {
+            "value": "2×",
+            "label": "aur London IOOC"
+          }
+        }
+      },
+      "block_order": [
+        "founder",
+        "family",
+        "st1",
+        "st2",
+        "st3",
+        "st4"
+      ]
+    },
+    "steps": {
+      "type": "steps",
+      "settings": {
+        "heading": "Cum ajunge uleiul la tine."
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Cules cu mâna",
+            "text": "Decembrie–ianuarie, la maturitatea potrivită."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Presat în 12 ore",
+            "text": "La rece, sub 27°C. Nefiltrat."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Analizat pe lot",
+            "text": "Aciditate, peroxizi, polifenoli. Publicăm buletinul."
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "title": "Adus direct",
+            "text": "Din Messinia în România, fără depozite intermediare."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ]
+    },
+    "cta": {
+      "type": "cta-band",
+      "settings": {
+        "style": "fresh",
+        "cta2_link": "/#recolta"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "intro",
+    "history",
+    "people",
+    "steps",
+    "cta"
+  ]
+}

@@ -1,0 +1,41 @@
+<article class="wrap pad-sm article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article__hero">
+    {{ article.image | image_url: width: 2000 | image_tag: alt: article.image.alt, loading: 'eager' }}
+  </div>
+  <header class="article__head stack-md">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Acasă</a> / <a href="{{ blog.url }}">{{ blog.title }}</a></nav>
+    <div class="chips">
+      {%- for tag in article.tags -%}<a href="{{ blog.url }}/tagged/{{ tag | handleize }}" class="chip chip--sage">{{ tag }}</a>{%- endfor -%}
+    </div>
+    <h1 class="display display--sm" itemprop="headline">{{ article.title }}</h1>
+    <p class="article__meta">{{ article.author }} · <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%d.%m.%Y' }}</time></p>
+  </header>
+  <div class="article__body prose__body" itemprop="articleBody">{{ article.content }}</div>
+
+  {%- if section.settings.show_product and section.settings.product != blank -%}
+    {%- assign p = section.settings.product -%}
+    <aside class="article__product">
+      <a href="{{ p.url }}" class="article__product-img">{{ p.featured_image | image_url: width: 400 | image_tag: alt: p.title }}</a>
+      <div class="stack-sm">
+        <span class="eyebrow">{{ section.settings.product_eyebrow }}</span>
+        <strong class="h-sm">{{ p.title }}</strong>
+        <a href="{{ p.url }}" class="btn btn--deep">Vezi uleiul</a>
+      </div>
+    </aside>
+  {%- endif -%}
+
+  <footer class="article__foot">
+    <a href="{{ blog.url }}" class="link-strong">← Înapoi la {{ blog.title }}</a>
+  </footer>
+</article>
+
+{% schema %}
+{
+  "name": "Articol",
+  "settings": [
+    { "type": "checkbox", "id": "show_product", "label": "Arată produs recomandat", "default": true },
+    { "type": "product", "id": "product", "label": "Produs" },
+    { "type": "text", "id": "product_eyebrow", "label": "Text deasupra produsului", "default": "Uleiul din rețetă" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,27 @@
+<div class="announce">
+  {%- for block in section.blocks -%}
+    {%- if block.settings.link != blank -%}
+      <a href="{{ block.settings.link }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</a>
+    {%- else -%}
+      <span {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+    {%- endif -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Bară anunț",
+  "class": "section-announce",
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Mesaj",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Livrare gratuită peste 200 lei" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "max_blocks": 3
+}
+{% endschema %}

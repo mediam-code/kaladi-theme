@@ -1,0 +1,88 @@
+<section class="wrap pad-lg" id="cadouri">
+  <div class="duo duo--wide">
+    <div class="gift">
+      {%- render 'kimg', image: section.settings.image, fallback: 'ai-gift-box.jpg', alt: 'Cutie cadou Kaladi cu ulei Olivi', width: 1400 -%}
+      <div class="gift__card">
+        <strong class="h-sm">{{ section.settings.gift_title }}</strong>
+        <p>{{ section.settings.gift_text }}</p>
+        <a href="{{ section.settings.gift_link }}" class="link-strong">{{ section.settings.gift_cta }} →</a>
+      </div>
+    </div>
+    <div class="panel panel--deep b2b">
+      <span class="chip chip--fresh">{{ section.settings.b2b_eyebrow }}</span>
+      <strong class="h-lg">{{ section.settings.b2b_title }}</strong>
+      <p>{{ section.settings.b2b_text }}</p>
+      <a href="{{ section.settings.b2b_link }}" class="btn btn--fresh">{{ section.settings.b2b_cta }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cadouri & firme",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagine cadou"
+    },
+    {
+      "type": "text",
+      "id": "gift_title",
+      "label": "Titlu cadou",
+      "default": "Seturi cadou"
+    },
+    {
+      "type": "textarea",
+      "id": "gift_text",
+      "label": "Text cadou",
+      "default": "Ulei, oțet balsamic învechit și sare gourmet, gata de oferit."
+    },
+    {
+      "type": "text",
+      "id": "gift_cta",
+      "label": "Link text",
+      "default": "Vezi seturile"
+    },
+    {
+      "type": "url",
+      "id": "gift_link",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "b2b_eyebrow",
+      "label": "B2B eyebrow",
+      "default": "Pentru firme"
+    },
+    {
+      "type": "text",
+      "id": "b2b_title",
+      "label": "B2B titlu",
+      "default": "Cadouri de Crăciun care chiar se folosesc."
+    },
+    {
+      "type": "textarea",
+      "id": "b2b_text",
+      "label": "B2B text",
+      "default": "De la 20 de cutii, cu card personalizat și factură pe firmă. Ai oferta în 24 h."
+    },
+    {
+      "type": "text",
+      "id": "b2b_cta",
+      "label": "B2B buton",
+      "default": "Cere ofertă"
+    },
+    {
+      "type": "url",
+      "id": "b2b_link",
+      "label": "B2B link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cadouri & firme"
+    }
+  ]
+}
+{% endschema %}

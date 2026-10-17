@@ -1,0 +1,54 @@
+<section class="wrap pad-lg stack-md">
+  <div class="section-head">
+    <h2 class="h-xl">{{ section.settings.heading }} <em>{{ section.settings.heading_italic }}</em></h2>
+  </div>
+  <div class="tiers">
+    {%- for block in section.blocks -%}
+      <div class="tier tier--{{ block.settings.style }}" {{ block.shopify_attributes }}>
+        <div class="tier__media">
+          {%- render 'kimg', image: block.settings.image, fallback: block.settings.fallback_asset, alt: block.settings.name, width: 900 -%}
+          {%- if block.settings.badge != blank -%}<span class="chip chip--deep tier__badge">{{ block.settings.badge }}</span>{%- endif -%}
+        </div>
+        <div class="tier__body">
+          <span class="eyebrow">{{ block.settings.eyebrow }}</span>
+          <strong class="tier__name">{{ block.settings.name }}</strong>
+          <div class="tier__list">{{ block.settings.includes }}</div>
+          <div class="tier__foot">
+            <span class="tier__price">{{ block.settings.price }}</span>
+            <a href="#{{ section.settings.form_anchor }}" class="btn btn--sm {% if block.settings.style == 'deep' %}btn--fresh{% else %}btn--deep{% endif %}">Cere ofertă</a>
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+  {%- if section.settings.note != blank -%}<p class="tiers__note">{{ section.settings.note }}</p>{%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Pachete cadou",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titlu", "default": "Trei pachete." },
+    { "type": "text", "id": "heading_italic", "label": "Titlu (italic)", "default": "Le personalizăm pe toate." },
+    { "type": "text", "id": "form_anchor", "label": "Ancora formularului", "default": "oferta" },
+    { "type": "textarea", "id": "note", "label": "Notă sub pachete" }
+  ],
+  "blocks": [
+    {
+      "type": "tier", "name": "Pachet",
+      "settings": [
+        { "type": "select", "id": "style", "label": "Culoare", "default": "sage", "options": [ { "value": "sage", "label": "Verde pal" }, { "value": "fresh", "label": "Verde proaspăt" }, { "value": "deep", "label": "Verde închis" } ] },
+        { "type": "image_picker", "id": "image", "label": "Imagine" },
+        { "type": "text", "id": "fallback_asset", "label": "Imagine din temă" },
+        { "type": "text", "id": "badge", "label": "Etichetă" },
+        { "type": "text", "id": "eyebrow", "label": "Pentru cine" },
+        { "type": "text", "id": "name", "label": "Nume pachet" },
+        { "type": "richtext", "id": "includes", "label": "Ce conține" },
+        { "type": "text", "id": "price", "label": "Preț / bucată" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [ { "name": "Pachete cadou" } ]
+}
+{% endschema %}

@@ -1,0 +1,83 @@
+{
+  "sections": {
+    "header": {
+      "type": "page-header",
+      "settings": {
+        "style": "deep",
+        "eyebrow": "Pentru firme",
+        "heading": "Cadouri de Crăciun care chiar se folosesc.",
+        "text": "Ulei extravirgin din Kalamata, în cutii pentru clienți, parteneri și echipă. Cu card personalizat, factură pe firmă și livrare la fiecare adresă.",
+        "cta_label": "Cere ofertă în 24 h",
+        "cta_link": "#oferta",
+        "fallback_asset": "ai-gift-box.jpg",
+        "image_alt": "Cutie cadou Kaladi cu ulei Olivi, măsline și oțet balsamic"
+      }
+    },
+    "why": {
+      "type": "info-cards",
+      "settings": { "heading": "De ce ulei de măsline?" },
+      "blocks": {
+        "c1": { "type": "card", "settings": { "style": "sage", "big": "100%", "title": "Se folosește, nu se aruncă", "text": "<p>Un cadou care ajunge pe masa familiei, nu în sertar.</p>" } },
+        "c2": { "type": "card", "settings": { "style": "fresh", "big": "Aur", "title": "London IOOC 2023 și 2024", "text": "<p>Un ulei premiat, cu analize de laborator pe fiecare lot.</p>" } },
+        "c3": { "type": "card", "settings": { "style": "deep", "big": "1", "title": "O singură familie", "text": "<p>O poveste ușor de spus: uleiul unei familii din Kalamata.</p>" } }
+      },
+      "block_order": ["c1", "c2", "c3"]
+    },
+    "tiers": {
+      "type": "gift-tiers",
+      "settings": { "note": "Prețuri orientative pe bucată, fără TVA. Oferta finală depinde de cantitate și personalizare. [De confirmat cu clientul]" },
+      "blocks": {
+        "t1": { "type": "tier", "settings": { "style": "sage", "fallback_asset": "ai-tins-round-linen.jpg", "eyebrow": "Echipă", "name": "Esențial", "includes": "<ul><li>Olivi 0.3, cutie 500 ml</li><li>Card personalizat</li><li>Cutie kraft cu sigiliu</li></ul>", "price": "de la [preț] lei" } },
+        "t2": { "type": "tier", "settings": { "style": "fresh", "badge": "Cel mai ales", "fallback_asset": "ai-gift-box.jpg", "eyebrow": "Clienți", "name": "Clasic", "includes": "<ul><li>Olivi în sticlă, 500 ml</li><li>Oțet balsamic învechit</li><li>Măsline Kalamata, sare gourmet</li><li>Card personalizat</li></ul>", "price": "de la [preț] lei" } },
+        "t3": { "type": "tier", "settings": { "style": "deep", "fallback_asset": "ai-bottle-1l-limestone.jpg", "eyebrow": "Parteneri", "name": "Premium", "includes": "<ul><li>Olivi în sticlă, 1 L</li><li>Cutie rotundă Olivi 0.3, 500 ml</li><li>Oțet balsamic + măsline + sare</li><li>Logo pe cutie, felicitare tipărită</li></ul>", "price": "de la [preț] lei" } }
+      },
+      "block_order": ["t1", "t2", "t3"]
+    },
+    "steps": {
+      "type": "steps",
+      "settings": { "heading": "Cum lucrăm, în 4 pași." },
+      "blocks": {
+        "s1": { "type": "step", "settings": { "title": "Ne scrii", "text": "Câte cutii, ce buget, până când." } },
+        "s2": { "type": "step", "settings": { "title": "Oferta în 24 h", "text": "Cu mostră de card și variante de cutie." } },
+        "s3": { "type": "step", "settings": { "title": "Personalizăm", "text": "Logo, mesaj, listă de adrese." } },
+        "s4": { "type": "step", "settings": { "title": "Livrăm", "text": "La sediu sau la fiecare destinatar. Factură pe firmă." } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"]
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "anchor": "oferta",
+        "form_name": "Ofertă cadouri corporate",
+        "heading": "Cere ofertă.",
+        "text": "Îți răspundem în cel mult 24 h, în zilele lucrătoare. Pentru comenzi urgente, sună-ne.",
+        "button": "Trimite cererea",
+        "success_text": "Am primit cererea. Îți trimitem oferta în cel mult 24 h lucrătoare."
+      },
+      "blocks": {
+        "f1": { "type": "input", "settings": { "label": "Nume", "required": true, "width": "half" } },
+        "f2": { "type": "input", "settings": { "label": "Firmă", "required": true, "width": "half" } },
+        "f3": { "type": "input", "settings": { "label": "Email", "type": "email", "required": true, "width": "half" } },
+        "f4": { "type": "input", "settings": { "label": "Telefon", "type": "tel", "required": true, "width": "half" } },
+        "f5": { "type": "input", "settings": { "label": "CUI", "placeholder": "pentru factură", "width": "half" } },
+        "f6": { "type": "select", "settings": { "label": "Câte cutii?", "options": "20–50, 50–100, 100–250, peste 250", "required": true, "width": "half" } },
+        "f7": { "type": "select", "settings": { "label": "Pachet", "options": "Esențial, Clasic, Premium, Nu știu încă", "width": "half" } },
+        "f8": { "type": "input", "settings": { "label": "Data livrării", "type": "date", "width": "half" } },
+        "f9": { "type": "textarea", "settings": { "label": "Detalii", "placeholder": "Logo, mesaj pe card, livrare la o adresă sau la mai mulți destinatari…", "width": "full" } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9"]
+    },
+    "faq": {
+      "type": "faq",
+      "settings": { "heading": "Întrebări de la firme" },
+      "blocks": {
+        "q1": { "type": "item", "settings": { "question": "Care e comanda minimă?", "answer": "<p>20 de cutii. Pentru mai puține, poți comanda seturile cadou direct din magazin.</p>" } },
+        "q2": { "type": "item", "settings": { "question": "Emiteți factură pe firmă?", "answer": "<p>Da, factură fiscală pe datele firmei, cu TVA.</p>" } },
+        "q3": { "type": "item", "settings": { "question": "Puteți livra la fiecare angajat sau client?", "answer": "<p>Da. Ne trimiți lista de adrese, iar noi livrăm prin curier la fiecare destinatar. [De confirmat costul per livrare]</p>" } },
+        "q4": { "type": "item", "settings": { "question": "Cât durează?", "answer": "<p>De la confirmare, de obicei 5–10 zile lucrătoare, în funcție de personalizare. Pentru Crăciun, recomandăm comanda până la [data limită]. [De confirmat]</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4"]
+    }
+  },
+  "order": ["header", "why", "tiers", "steps", "form", "faq"]
+}

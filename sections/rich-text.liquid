@@ -1,0 +1,20 @@
+<section class="wrap pad-lg">
+  <div class="prose{% if section.settings.center %} prose--center{% endif %}">
+    {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+    {%- if section.settings.heading != blank -%}<h2 class="h-xl">{{ section.settings.heading }}</h2>{%- endif -%}
+    <div class="prose__body">{{ section.settings.text }}</div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Text",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Titlu" },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Scrie povestea aici.</p>" },
+    { "type": "checkbox", "id": "center", "label": "Centrat", "default": false }
+  ],
+  "presets": [ { "name": "Text" } ]
+}
+{% endschema %}

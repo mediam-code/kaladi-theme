@@ -1,0 +1,9 @@
+dev/
+dist/
+_generated/
+node_modules/
+README.md
+netlify.toml
+package.json
+package-lock.json
+.claude/

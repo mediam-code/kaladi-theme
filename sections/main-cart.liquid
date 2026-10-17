@@ -1,0 +1,38 @@
+<section class="wrap pad-md stack-lg cart-page">
+  <h1 class="display display--sm">{{ section.settings.heading }}</h1>
+  {%- if cart.item_count > 0 -%}
+    <form action="{{ routes.cart_url }}" method="post" class="cart-page__grid">
+      <div class="cart-page__items">
+        {%- for item in cart.items -%}
+          <div class="line">
+            <a href="{{ item.url }}" class="line__img">{{ item.image | image_url: width: 240 | image_tag: alt: item.product_title }}</a>
+            <div class="line__info">
+              <a href="{{ item.url }}" class="line__title">{{ item.product_title }}</a>
+              {%- unless item.variant_title == 'Default Title' -%}<span>{{ item.variant_title }}</span>{%- endunless -%}
+              {%- if item.selling_plan_allocation -%}<span class="chip chip--fresh">{{ item.selling_plan_allocation.selling_plan.name }}</span>{%- endif -%}
+              <label class="sr" for="qty-{{ item.key }}">Cantitate</label>
+              <input class="line__qty" id="qty-{{ item.key }}" type="number" name="updates[]" value="{{ item.quantity }}" min="0">
+            </div>
+            <strong class="line__price">{{ item.final_line_price | money }}</strong>
+          </div>
+        {%- endfor -%}
+      </div>
+      <aside class="cart-page__sum">
+        <div class="drawer__total"><span>Subtotal</span><strong>{{ cart.total_price | money }}</strong></div>
+        <small>Livrarea se calculează la checkout. Card sau ramburs.</small>
+        <button type="submit" name="update" class="btn btn--paper btn--block">Actualizează</button>
+        <button type="submit" name="checkout" class="btn btn--deep btn--lg btn--block">Finalizează comanda</button>
+      </aside>
+    </form>
+  {%- else -%}
+    <p class="lead-sm">Coșul e gol.</p>
+    <a href="/collections/all" class="btn btn--deep btn--lg">Vezi uleiurile</a>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Coș",
+  "settings": [ { "type": "text", "id": "heading", "label": "Titlu", "default": "Coșul tău" } ]
+}
+{% endschema %}

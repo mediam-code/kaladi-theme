@@ -1,0 +1,79 @@
+{%- comment -%}
+  Drumul uleiului — secțiune animată la scroll.
+  O picătură coboară pe fir pe măsură ce derulezi; etapele apar alternativ stânga / dreapta.
+  Fără JS sau cu „reduce motion”, totul e vizibil static.
+{%- endcomment -%}
+<section class="journey" data-journey id="{{ section.settings.anchor }}">
+  <div class="wrap">
+    <div class="journey__head">
+      <span class="journey__eyebrow">
+        <svg class="spin" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.7 4.6 2.5 7.6 6.2 9.3L24 12l-5.8 2.7C14.5 16.4 12.7 19.4 12 24c-.7-4.6-2.5-7.6-6.2-9.3L0 12l5.8-2.7C9.5 7.6 11.3 4.6 12 0z"/></svg>
+        {{ section.settings.eyebrow }}
+        <svg class="spin" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.7 4.6 2.5 7.6 6.2 9.3L24 12l-5.8 2.7C14.5 16.4 12.7 19.4 12 24c-.7-4.6-2.5-7.6-6.2-9.3L0 12l5.8-2.7C9.5 7.6 11.3 4.6 12 0z"/></svg>
+      </span>
+      <h2 class="journey__title">
+        <span>{{ section.settings.heading_1 }}</span>
+        <span class="journey__title-2"><em>{{ section.settings.heading_2 }}</em></span>
+      </h2>
+    </div>
+
+    <div class="journey__track">
+      <div class="journey__line" aria-hidden="true"><i data-journey-fill></i></div>
+      <div class="journey__drop" aria-hidden="true" data-journey-drop>
+        <svg width="34" height="56" viewBox="0 0 24 40"><path d="M12 0C9 8 2 15 2 25a10 10 0 0 0 20 0C22 15 15 8 12 0Z" fill="currentColor"/><ellipse cx="8" cy="25" rx="2.4" ry="4" fill="#fff" opacity=".35"/></svg>
+        <span class="journey__drip journey__drip--1">*pic*</span>
+        <span class="journey__drip journey__drip--2">*pic*</span>
+      </div>
+
+      <ol class="journey__steps">
+        {%- for block in section.blocks -%}
+          <li class="jstep jstep--{% cycle 'right', 'left' %}" data-journey-step {{ block.shopify_attributes }}>
+            <div class="jstep__card">
+              <div class="jstep__media">
+                {%- render 'kimg', image: block.settings.image, fallback: block.settings.fallback_asset, alt: block.settings.title, width: 900 -%}
+                <span class="jstep__num">{{ forloop.index | prepend: '0' }}</span>
+              </div>
+              <div class="jstep__body">
+                {%- if block.settings.tag != blank -%}<span class="chip chip--fresh">{{ block.settings.tag }}</span>{%- endif -%}
+                <strong>{{ block.settings.title }}</strong>
+                <p>{{ block.settings.text }}</p>
+              </div>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ol>
+    </div>
+
+    {%- if section.settings.cta_label != blank -%}
+      <div class="journey__cta"><a href="{{ section.settings.cta_link }}" class="btn btn--deep btn--lg">{{ section.settings.cta_label }}</a></div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Drumul uleiului (animat)",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Ancoră (id)", "default": "drumul-uleiului" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "De la livadă la tine" },
+    { "type": "text", "id": "heading_1", "label": "Titlu — rândul 1", "default": "Ulei atât de proaspăt," },
+    { "type": "text", "id": "heading_2", "label": "Titlu — rândul 2", "default": "că îi simți livada." },
+    { "type": "text", "id": "cta_label", "label": "Buton", "default": "Gustă-l acasă" },
+    { "type": "url", "id": "cta_link", "label": "Link buton" }
+  ],
+  "blocks": [
+    {
+      "type": "step", "name": "Etapă",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Imagine" },
+        { "type": "text", "id": "fallback_asset", "label": "Imagine din temă" },
+        { "type": "text", "id": "tag", "label": "Etichetă (ex. Decembrie)" },
+        { "type": "text", "id": "title", "label": "Titlu" },
+        { "type": "textarea", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [ { "name": "Drumul uleiului (animat)" } ]
+}
+{% endschema %}

@@ -1,0 +1,17 @@
+{%- comment -%}
+  Imagine responsivă cu fallback pe un fișier din assets.
+  Parametri: image (image_picker, opțional), fallback (nume fișier din assets), alt, class, width (default 1600), eager (bool)
+{%- endcomment -%}
+{%- liquid
+  assign w = width | default: 1600
+  if eager
+    assign loading = 'eager'
+  else
+    assign loading = 'lazy'
+  endif
+-%}
+{%- if image != blank -%}
+  {{ image | image_url: width: w | image_tag: alt: alt, class: class, loading: loading, sizes: '(min-width: 990px) 50vw, 100vw' }}
+{%- elsif fallback != blank -%}
+  <img src="{{ fallback | asset_url }}" alt="{{ alt | escape }}" class="{{ class }}" loading="{{ loading }}">
+{%- endif -%}

@@ -1,0 +1,291 @@
+{
+  "_note": "Date de test DOAR pentru preview local. Prețurile null apar ca [preț] lei. În Shopify vin din admin.",
+  "shop": {
+    "name": "Kaladi",
+    "url": "http://localhost:9292"
+  },
+  "products": {
+    "olivi-sticla": {
+      "id": 1001,
+      "handle": "olivi-sticla",
+      "title": "Olivi în sticlă",
+      "description": "<p>Koroneiki de la Nikolopoulos Estate, Messinia–Kalamata. Fructat, cu iarbă proaspătă și un final ușor picant. Se pune pe mâncare la final, nu se încinge.</p>",
+      "options": [
+        "Mărime"
+      ],
+      "media": [
+        {
+          "src": "ai-bottle-500-studio.jpg",
+          "alt": "Sticla Olivi 500 ml pe fundal verde"
+        },
+        {
+          "src": "ai-bottle-500-table.jpg",
+          "alt": "Sticla Olivi pe masă, cu pâine și ulei"
+        },
+        {
+          "src": "ai-bottle-1l-limestone.jpg",
+          "alt": "Sticla Olivi 1 L pe piatră"
+        },
+        {
+          "src": "olivi-sticle.jpg",
+          "alt": "Toate mărimile: 250 ml, 500 ml, 750 ml, 1 L"
+        }
+      ],
+      "variants": [
+        {
+          "id": 11,
+          "title": "250 ml",
+          "price": null,
+          "available": true
+        },
+        {
+          "id": 12,
+          "title": "500 ml",
+          "price": null,
+          "available": true
+        },
+        {
+          "id": 13,
+          "title": "750 ml",
+          "price": null,
+          "available": true
+        },
+        {
+          "id": 14,
+          "title": "1 L",
+          "price": null,
+          "available": true
+        }
+      ],
+      "selected_variant": 12,
+      "selling_plan_groups": [
+        {
+          "name": "Abonament",
+          "selling_plans": [
+            {
+              "id": 901,
+              "name": "La 1 lună"
+            },
+            {
+              "id": 902,
+              "name": "La 2 luni"
+            },
+            {
+              "id": 903,
+              "name": "La 3 luni"
+            }
+          ]
+        }
+      ],
+      "metafields": {
+        "custom": {
+          "use_case": "Pentru stropit",
+          "harvest": "[2025/26]",
+          "taste_fruity": 4,
+          "taste_bitter": 2,
+          "taste_pungent": 3,
+          "lot_code": "[cod]",
+          "acidity": "[0,2]%",
+          "polyphenols": "[—]",
+          "badge": "Cel mai vândut",
+          "short": "Pe salate, pâine caldă, pește. Fructat, cu final ușor picant."
+        }
+      }
+    },
+    "rezerva-familiei": {
+      "id": 1002,
+      "handle": "rezerva-familiei",
+      "title": "Rezerva familiei · 5 L",
+      "description": "<p>Același ulei, în cutie metalică ce ține lumina departe. Pentru gătit zilnic.</p>",
+      "options": [
+        "Mărime"
+      ],
+      "media": [
+        {
+          "src": "ai-tin-5l-kitchen.jpg",
+          "alt": "Cutia Olivi 5 L în bucătărie"
+        },
+        {
+          "src": "olivi-cutii-3l-5l.jpg",
+          "alt": "Cutiile de 3 L și 5 L"
+        }
+      ],
+      "variants": [
+        {
+          "id": 21,
+          "title": "3 L",
+          "price": null,
+          "available": true
+        },
+        {
+          "id": 22,
+          "title": "5 L",
+          "price": 33300,
+          "available": true
+        }
+      ],
+      "selected_variant": 22,
+      "selling_plan_groups": [
+        {
+          "name": "Abonament",
+          "selling_plans": [
+            {
+              "id": 901,
+              "name": "La 1 lună"
+            },
+            {
+              "id": 902,
+              "name": "La 2 luni"
+            },
+            {
+              "id": 903,
+              "name": "La 3 luni"
+            }
+          ]
+        }
+      ],
+      "metafields": {
+        "custom": {
+          "use_case": "Pentru gătit zilnic",
+          "harvest": "[2025/26]",
+          "taste_fruity": 4,
+          "taste_bitter": 2,
+          "taste_pungent": 3,
+          "badge": "Abonament −10%",
+          "short": "Cutie metalică ce ține lumina departe. Pentru tigaie și cuptor."
+        }
+      }
+    },
+    "olivi-cutie-rotunda": {
+      "id": 1003,
+      "handle": "olivi-cutie-rotunda",
+      "title": "Olivi 0.3 · cutie rotundă",
+      "description": "<p>Cutii metalice rotunde, 250 ml – 1 L.</p>",
+      "options": [
+        "Mărime"
+      ],
+      "media": [
+        {
+          "src": "ai-tins-round-linen.jpg",
+          "alt": "Cutiile rotunde Olivi 0.3"
+        },
+        {
+          "src": "olivi-cutii-rotunde.jpg",
+          "alt": "Cutiile rotunde pe fundal alb"
+        }
+      ],
+      "variants": [
+        {
+          "id": 31,
+          "title": "250 ml",
+          "price": null,
+          "available": true
+        },
+        {
+          "id": 32,
+          "title": "500 ml",
+          "price": null,
+          "available": true
+        },
+        {
+          "id": 33,
+          "title": "1 L",
+          "price": null,
+          "available": true
+        }
+      ],
+      "selected_variant": 32,
+      "selling_plan_groups": [],
+      "metafields": {
+        "custom": {
+          "use_case": "Pentru cămară",
+          "short": "Același ulei, în cutii rotunde de 250 ml – 1 L."
+        }
+      }
+    },
+    "set-cadou-kaladi": {
+      "id": 1004,
+      "handle": "set-cadou-kaladi",
+      "title": "Set cadou Kaladi",
+      "description": "<p>Ulei Olivi, oțet balsamic, măsline și sare, în cutie cadou.</p>",
+      "options": [
+        "Title"
+      ],
+      "media": [
+        {
+          "src": "ai-gift-box.jpg",
+          "alt": "Cutie cadou Kaladi"
+        }
+      ],
+      "variants": [
+        {
+          "id": 41,
+          "title": "Default Title",
+          "price": null,
+          "available": true
+        }
+      ],
+      "selected_variant": 41,
+      "selling_plan_groups": [],
+      "metafields": {
+        "custom": {
+          "use_case": "De oferit",
+          "badge": "Crăciun",
+          "short": "Ulei Olivi, oțet balsamic, măsline și sare, în cutie cadou."
+        }
+      }
+    }
+  },
+  "blogs": {
+    "jurnal": {
+      "handle": "jurnal",
+      "title": "Jurnal",
+      "articles": [
+        {
+          "handle": "aciditatea-uleiului-de-masline",
+          "title": "Aciditatea uleiului de măsline: ce înseamnă și de ce contează",
+          "image": "blog-aciditate.jpg",
+          "tags": [
+            "Ghid"
+          ],
+          "published_at": "2026-10-10",
+          "author": "Echipa Kaladi",
+          "content": "<p>Pe eticheta unui ulei extravirgin vezi des un procent: 0,3%, 0,5%, 0,8%. Acela e <strong>aciditatea liberă</strong>: cât acid oleic liber are uleiul. Nu se simte la gust. E un indicator de laborator pentru cât de sănătoase au fost măslinele și cât de repede au ajuns la presă.</p><h2>Care e limita?</h2><p>Ca să se numească „extravirgin”, uleiul trebuie să aibă aciditatea de cel mult 0,8%, conform regulilor UE (Regulamentul delegat (UE) 2022/2104). Pe lângă asta, trebuie să treacă și un test de gust făcut de un panel autorizat, fără defecte.</p><h2>De ce contează o valoare mică?</h2><p>Măslinele lovite, culese de pe jos sau ținute zile întregi până la presare încep să se degradeze, iar aciditatea crește. O valoare mică arată fructe culese cu grijă și presate repede. La Kaladi, măslinele ajung la presă în cel mult 12 ore de la cules.</p><h2>Ce să mai cauți pe etichetă</h2><ul><li><strong>Anul recoltei.</strong> Uleiul e un produs proaspăt și e cel mai bun în primele 12–18 luni.</li><li><strong>Originea.</strong> O singură regiune, ideal o singură livadă.</li><li><strong>Ambalajul.</strong> Sticlă închisă la culoare sau cutie metalică, ca să nu ajungă lumina la ulei.</li></ul><p>Pe pagina fiecărui produs găsești fișa lotului, cu aciditatea măsurată în laborator. [Valori de confirmat cu buletinul de analiză]</p>"
+        },
+        {
+          "handle": "salata-greceasca-de-iarna",
+          "title": "Salată grecească de iarnă, cu ulei din recolta nouă",
+          "image": "ai-greek-table.jpg",
+          "tags": [
+            "Rețetă"
+          ],
+          "published_at": "2026-10-05",
+          "author": "Echipa Kaladi",
+          "content": "<p>O salată simplă, în care uleiul e ingredientul principal, nu un detaliu. Merge cel mai bine cu ulei din recolta nouă, verde și ușor picant.</p><h2>Ingrediente (2 porții)</h2><ul><li>3 roșii coapte</li><li>1 castravete</li><li>½ ceapă roșie</li><li>1 ardei verde</li><li>150 g brânză feta</li><li>o mână de măsline Kalamata</li><li>oregano uscat, sare grunjoasă</li><li>4 linguri de ulei Olivi extravirgin</li></ul><h2>Cum o faci</h2><ol><li>Taie roșiile și castravetele în bucăți mari, ceapa și ardeiul în rondele subțiri.</li><li>Pune totul într-un bol larg, adaugă măslinele și sare puțin.</li><li>Așază feta într-o singură bucată deasupra și presară oregano.</li><li>Toarnă uleiul la final, direct pe brânză și legume. Nu amesteca: lasă-l să se scurgă printre legume.</li></ol><p>Servește cu pâine caldă, ca să nu rămână nimic din ulei în farfurie.</p>"
+        },
+        {
+          "handle": "kalamata-reperul-in-calitatea-uleiului",
+          "title": "Kalamata, reperul în calitatea uleiului de măsline",
+          "image": "blog-kalamata.jpg",
+          "tags": [
+            "Origine"
+          ],
+          "published_at": "2026-09-28",
+          "author": "Echipa Kaladi",
+          "content": "<p>Kalamata e un oraș din sudul Peloponezului, în regiunea Messinia. Pentru mulți, numele duce cu gândul la măslinele mari, mov. Pentru cei care fac ulei, Messinia înseamnă altceva: <strong>Koroneiki</strong>.</p><h2>Koroneiki, soiul mic cu gust mare</h2><p>Koroneiki are fructe mici, cu mult ulei. Uleiul are de obicei un gust fructat, cu note de iarbă proaspătă, un final amărui și o senzație ușor picantă în gât.</p><h2>De ce contează locul</h2><p>Livada familiei Nikolopoulos e la aproximativ 400 m altitudine, la circa 30 km de Kalamata. Iernile blânde, verile uscate și solul fac din zonă una dintre cele mai bune pentru măslini din Grecia.</p><p>[Paragraf despre familie și livadă, de completat după materialele primite de la producător]</p>"
+        },
+        {
+          "handle": "o-zi-de-cules-in-livada",
+          "title": "O zi de cules în livada familiei Nikolopoulos",
+          "image": "ai-harvest-hands.jpg",
+          "tags": [
+            "Din livadă"
+          ],
+          "published_at": "2026-09-20",
+          "author": "Echipa Kaladi",
+          "content": "<p>[Articol de scris după vizita la cules din decembrie: fotografii, ritmul unei zile de recoltă, drumul de la livadă la presă.]</p>"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{%- comment -%}
+  Coș lateral. Conținutul e redesenat din JS pe baza /cart.js (Shopify Ajax API).
+  Randarea Liquid de mai jos e starea inițială (fără JS sau la încărcare).
+{%- endcomment -%}
+<div class="drawer" data-cart-drawer hidden>
+  <div class="drawer__overlay" data-cart-close></div>
+  <aside class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="cart-drawer-title">
+    <header class="drawer__head">
+      <strong id="cart-drawer-title" class="h-sm">Coșul tău <span class="cart-bubble" data-cart-count>{{ cart.item_count }}</span></strong>
+      <button type="button" class="drawer__close" data-cart-close aria-label="Închide coșul">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </header>
+
+    <div class="ship" data-free-ship>
+      <span data-free-ship-text>Livrare gratuită peste {{ settings.free_shipping_threshold }} lei</span>
+      <div class="ship__bar"><i data-free-ship-bar style="width: 0%"></i></div>
+    </div>
+
+    <div class="drawer__items" data-cart-items>
+      {%- if cart.item_count == 0 -%}
+        <div class="drawer__empty">
+          <p>Coșul e gol.</p>
+          <a href="/collections/all" class="btn btn--deep">Vezi uleiurile</a>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if settings.cart_upsell != blank -%}
+      {%- assign up = settings.cart_upsell -%}
+      {%- if up != blank -%}
+        <div class="drawer__upsell" data-cart-upsell>
+          {{ up.featured_image | image_url: width: 200 | image_tag: alt: up.title }}
+          <div><small class="eyebrow">Merge bine cu</small><strong>{{ up.title }}</strong><span>{{ up.price | money }}</span></div>
+          <button type="button" class="btn btn--sm btn--deep" data-quick-add="{{ up.selected_or_first_available_variant.id }}">+ Adaugă</button>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+
+    <footer class="drawer__foot">
+      <div class="drawer__total"><span>Subtotal</span><strong data-cart-total>{{ cart.total_price | money }}</strong></div>
+      <small>Livrarea se calculează la checkout. Plătești cu cardul sau ramburs.</small>
+      <a href="{{ routes.root_url }}checkout" class="btn btn--deep btn--lg btn--block" data-checkout>Finalizează comanda</a>
+      <a href="{{ routes.cart_url }}" class="link-strong drawer__view">Vezi coșul complet</a>
+    </footer>
+  </aside>
+</div>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code | default: 'ro' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title }}{% unless page_title contains shop.name %} · {{ shop.name }}{% endunless %}</title>
+  {%- if page_description -%}<meta name="description" content="{{ page_description | escape }}">{%- endif -%}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  {% render 'font-pairing' %}
+  <style>
+    :root {
+      --c-fresh: {{ settings.color_fresh }};
+      --c-deep: {{ settings.color_deep }};
+      --c-paper: {{ settings.color_paper }};
+      --c-sage: {{ settings.color_sage }};
+      --c-gold: {{ settings.color_gold }};
+    }
+  </style>
+  {{ 'kaladi.css' | asset_url | stylesheet_tag }}
+  <script>
+    window.routes = { cart_add_url: '{{ routes.cart_add_url }}', cart_change_url: '{{ routes.cart_change_url }}', cart_url: '{{ routes.cart_url }}' };
+    window.kaladi = { freeShippingThreshold: {{ settings.free_shipping_threshold | times: 100 }} };
+  </script>
+  {{ content_for_header }}
+</head>
+<body>
+  <a class="skip-link" href="#main">Sari la conținut</a>
+  {% sections 'header-group' %}
+  <main id="main" role="main">
+    {{ content_for_layout }}
+  </main>
+  {% sections 'footer-group' %}
+  {% render 'cart-drawer' %}
+  {% render 'welcome-popup' %}
+  <script src="{{ 'kaladi.js' | asset_url }}" defer></script>
+</body>
+</html>

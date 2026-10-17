@@ -1,0 +1,34 @@
+<section class="band band--sage pad-lg">
+  <div class="wrap stack-md" id="recenzii">
+    <div class="section-head">
+      <h2 class="h-xl">{{ section.settings.heading }} <em>{{ section.settings.heading_italic }}</em></h2>
+      <span class="chip chip--deep">{{ section.settings.badge }}</span>
+    </div>
+    {%- comment -%} În Shopify: înlocuiți blocurile cu widgetul Judge.me (app block) când recenziile sunt importate. {%- endcomment -%}
+    <div class="card-row">
+      {%- for block in section.blocks -%}
+        <figure class="review" {{ block.shopify_attributes }}>
+          {%- render 'stars' -%}
+          <blockquote>„{{ block.settings.quote }}”</blockquote>
+          <figcaption>{{ block.settings.author }}</figcaption>
+        </figure>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Recenzii",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titlu", "default": "4,84 din 5." },
+    { "type": "text", "id": "heading_italic", "label": "Titlu (italic)", "default": "Și se simte." },
+    { "type": "text", "id": "badge", "label": "Etichetă", "default": "95% îl recomandă" }
+  ],
+  "blocks": [
+    { "type": "review", "name": "Recenzie", "settings": [ { "type": "textarea", "id": "quote", "label": "Text", "default": "[Recenzie reală de pe eMAG, cu acordul clientului]" }, { "type": "text", "id": "author", "label": "Autor", "default": "[Prenume I.] · Client verificat" } ] },
+    { "type": "@app" }
+  ],
+  "presets": [ { "name": "Recenzii", "blocks": [ { "type": "review" }, { "type": "review" }, { "type": "review" } ] } ]
+}
+{% endschema %}

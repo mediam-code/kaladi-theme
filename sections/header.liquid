@@ -1,0 +1,35 @@
+<header class="site-header">
+  <div class="site-header__pill">
+    <a href="{{ routes.root_url }}" class="site-header__logo">
+      {%- render 'kimg', image: section.settings.logo, fallback: 'kaladi-logo.png', alt: shop.name, width: 120, eager: true -%}
+      <span>{{ shop.name | upcase }}</span>
+    </a>
+    <nav class="site-header__nav" aria-label="Navigație principală">
+      {%- if section.settings.menu != blank and linklists[section.settings.menu].links.size > 0 -%}
+        {%- for link in linklists[section.settings.menu].links -%}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {%- endfor -%}
+      {%- else -%}
+        <a href="/collections/all">Magazin</a>
+        <a href="/#recolta">Recolta nouă</a>
+        <a href="/pages/povestea">Povestea</a>
+        <a href="/pages/cadouri-corporate">Cadouri</a>
+        <a href="/blogs/jurnal">Rețete</a>
+      {%- endif -%}
+    </nav>
+    <a href="{{ routes.cart_url }}" class="btn btn--deep site-header__cart" data-cart-open>
+      Coș <span class="cart-bubble" data-cart-count>{{ cart.item_count }}</span>
+    </a>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "section-header",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo" },
+    { "type": "link_list", "id": "menu", "label": "Meniu", "default": "main-menu" }
+  ]
+}
+{% endschema %}

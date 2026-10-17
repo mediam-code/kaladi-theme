@@ -1,0 +1,6 @@
+node_modules/
+_generated/
+.DS_Store
+dist/
+.netlify/
+.claude/

@@ -1,0 +1,88 @@
+<section class="wrap pad-lg stack-md">
+  <div class="section-head">
+    <h2 class="h-lg">{{ section.settings.heading }}</h2>
+    <a href="{{ section.settings.link }}" class="link-strong">Toate articolele →</a>
+  </div>
+  <div class="card-row">
+    {%- assign blog = blogs[section.settings.blog] -%}
+    {%- if blog != blank and blog.articles.size > 0 -%}
+      {%- for article in blog.articles limit: 3 -%}
+        <a href="{{ article.url }}" class="post">
+          {{ article.image | image_url: width: 900 | image_tag: alt: article.title }}
+          <span class="chip chip--sage">{{ article.tags.first | default: 'Jurnal' }}</span>
+          <strong>{{ article.title }}</strong>
+        </a>
+      {%- endfor -%}
+    {%- else -%}
+      {%- for block in section.blocks -%}
+        <a href="{{ block.settings.link }}" class="post" {{ block.shopify_attributes }}>
+          {%- render 'kimg', image: block.settings.image, fallback: block.settings.fallback_asset, alt: '', width: 900 -%}
+          <span class="chip chip--sage">{{ block.settings.tag }}</span>
+          <strong>{{ block.settings.title }}</strong>
+        </a>
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Jurnal",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titlu",
+      "default": "Din jurnal"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog (dacă e ales, înlocuiește blocurile)"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "post",
+      "name": "Articol manual",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagine"
+        },
+        {
+          "type": "text",
+          "id": "fallback_asset",
+          "label": "Imagine din temă"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Categorie"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titlu"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Jurnal"
+    }
+  ]
+}
+{% endschema %}

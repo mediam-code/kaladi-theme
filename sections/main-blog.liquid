@@ -1,0 +1,42 @@
+<section class="wrap pad-md stack-lg">
+  {%- paginate blog.articles by 9 -%}
+    {%- if blog.all_tags.size > 0 -%}
+      <nav class="tags" aria-label="Categorii">
+        <a href="{{ blog.url }}" class="chip {% if current_tags == blank %}chip--deep{% else %}chip--sage{% endif %}">Toate</a>
+        {%- for tag in blog.all_tags -%}
+          <a href="{{ blog.url }}/tagged/{{ tag | handleize }}" class="chip {% if current_tags contains tag %}chip--deep{% else %}chip--sage{% endif %}">{{ tag }}</a>
+        {%- endfor -%}
+      </nav>
+    {%- endif -%}
+
+    {%- assign featured = blog.articles.first -%}
+    {%- if featured and current_tags == blank and paginate.current_page == 1 -%}
+      <a href="{{ featured.url }}" class="post-feature">
+        <div class="post-feature__media">{{ featured.image | image_url: width: 1600 | image_tag: alt: featured.image.alt }}</div>
+        <div class="post-feature__body stack-md">
+          <span class="chip chip--deep">{{ featured.tags.first | default: 'Jurnal' }}</span>
+          <strong class="h-lg">{{ featured.title }}</strong>
+          <p class="lead-sm">{{ featured.excerpt_or_content | strip_html | truncatewords: 30 }}</p>
+          <span class="link-strong">Citește →</span>
+        </div>
+      </a>
+    {%- endif -%}
+
+    <div class="grid-posts">
+      {%- for article in blog.articles -%}
+        {%- if forloop.first and current_tags == blank and paginate.current_page == 1 -%}{%- continue -%}{%- endif -%}
+        <a href="{{ article.url }}" class="post">
+          {{ article.image | image_url: width: 900 | image_tag: alt: article.image.alt, loading: 'lazy' }}
+          <span class="chip chip--sage">{{ article.tags.first | default: 'Jurnal' }}</span>
+          <strong>{{ article.title }}</strong>
+          <small class="post__meta">{{ article.published_at | date: '%d.%m.%Y' }}</small>
+        </a>
+      {%- endfor -%}
+    </div>
+    {%- if paginate.pages > 1 -%}<nav class="pager" aria-label="Pagini">{{ paginate | default_pagination }}</nav>{%- endif -%}
+  {%- endpaginate -%}
+</section>
+
+{% schema %}
+{ "name": "Blog — listă articole", "settings": [] }
+{% endschema %}

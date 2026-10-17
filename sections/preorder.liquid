@@ -1,0 +1,48 @@
+<section class="wrap pad-sm" id="recolta">
+  <div class="panel panel--fresh split">
+    <div class="stack-md split__text">
+      <span class="chip chip--deep">{{ section.settings.eyebrow }}</span>
+      <h2 class="display display--md">{{ section.settings.heading }}</h2>
+      <p class="lead">{{ section.settings.text }}</p>
+      {%- comment -%} Formular Shopify nativ de abonare (clienți cu tag). Se poate înlocui cu Klaviyo. {%- endcomment -%}
+      {%- form 'customer', class: 'inline-form' -%}
+        <input type="hidden" name="contact[tags]" value="precomanda-recolta">
+        <label for="pre-email-{{ section.id }}" class="sr">Adresa de email</label>
+        <input id="pre-email-{{ section.id }}" type="email" name="contact[email]" placeholder="adresa ta de email" required>
+        <button type="submit" class="btn btn--deep">{{ section.settings.button }}</button>
+      {%- endform -%}
+    </div>
+    <div class="timeline">
+      {%- for block in section.blocks -%}
+        <div class="timeline__row{% if forloop.last %} timeline__row--deep{% endif %}" {{ block.shopify_attributes }}>
+          <strong>{{ block.settings.month }}</strong><span>{{ block.settings.text }}</span>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Precomandă recoltă",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Precomandă · o dată pe an" },
+    { "type": "text", "id": "heading", "label": "Titlu", "default": "Recolta 2027 vine în ianuarie." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Stoc limitat la ce presează familia anul acesta. Cine rezervă acum îl primește primul." },
+    { "type": "text", "id": "button", "label": "Buton", "default": "Rezervă" }
+  ],
+  "blocks": [
+    { "type": "month", "name": "Etapă", "settings": [ { "type": "text", "id": "month", "label": "Lună" }, { "type": "text", "id": "text", "label": "Text" } ] }
+  ],
+  "presets": [
+    {
+      "name": "Precomandă recoltă",
+      "blocks": [
+        { "type": "month", "settings": { "month": "Noiembrie", "text": "Se deschid precomenzile" } },
+        { "type": "month", "settings": { "month": "Decembrie", "text": "Cules și presare, live pe Instagram" } },
+        { "type": "month", "settings": { "month": "Ianuarie", "text": "Livrare către cei care au rezervat" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

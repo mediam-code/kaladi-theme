@@ -1,0 +1,8 @@
+# Prezentare statică pentru client (nu e magazinul Shopify).
+# Netlify rulează preview-ul local o dată și publică paginile generate în dist/.
+[build]
+  command = "npm run build:static"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"

@@ -1,0 +1,147 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "b1": {
+          "type": "collapsible",
+          "settings": {
+            "title": "Cum îl folosești",
+            "content": "<p>Crud, pe salate, legume coapte, pește, pâine. Pentru gătit zilnic alege Rezerva familiei (3 L sau 5 L).</p>"
+          }
+        },
+        "b2": {
+          "type": "collapsible",
+          "settings": {
+            "title": "Păstrare",
+            "content": "<p>La întuneric, la 14–18°C, departe de aragaz. Are gustul cel mai bun în primele 3 luni după deschidere.</p>"
+          }
+        },
+        "b3": {
+          "type": "collapsible",
+          "settings": {
+            "title": "Ingrediente și valori nutriționale",
+            "content": "<p>100% ulei de măsline extravirgin, obținut direct din măsline, exclusiv prin procedee mecanice. [Tabel nutrițional de pe etichetă]</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "ticker": {
+      "type": "ticker",
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "text": "Cules cu mâna"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "text": "Presat în 12 ore"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "text": "Koroneiki 100%"
+          }
+        },
+        "t4": {
+          "type": "item",
+          "settings": {
+            "text": "Aciditate ≤ 0,3%"
+          }
+        },
+        "t5": {
+          "type": "item",
+          "settings": {
+            "text": "Aur la Londra"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5"
+      ]
+    },
+    "origin": {
+      "type": "origin-band",
+      "settings": {
+        "cta_link": "/#poveste"
+      }
+    },
+    "reviews": {
+      "type": "reviews",
+      "settings": {
+        "heading": "4,84 din 5.",
+        "heading_italic": "19 păreri."
+      },
+      "blocks": {
+        "v1": {
+          "type": "review",
+          "settings": {}
+        },
+        "v2": {
+          "type": "review",
+          "settings": {}
+        },
+        "v3": {
+          "type": "review",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "v1",
+        "v2",
+        "v3"
+      ]
+    },
+    "related": {
+      "type": "related-products",
+      "blocks": {
+        "r1": {
+          "type": "product",
+          "settings": {
+            "product": "rezerva-familiei",
+            "style": "fresh"
+          }
+        },
+        "r2": {
+          "type": "product",
+          "settings": {
+            "product": "olivi-cutie-rotunda",
+            "style": "sage"
+          }
+        },
+        "r3": {
+          "type": "product",
+          "settings": {
+            "product": "set-cadou-kaladi",
+            "style": "deep"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "ticker",
+    "origin",
+    "reviews",
+    "related"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "sections": {
+    "main": { "type": "rich-text", "settings": { "heading": "", "text": "<p></p>" } }
+  },
+  "order": ["main"]
+}

@@ -1,0 +1,25 @@
+{%- comment -%} Parametri: product, style (sage|fresh|deep) {%- endcomment -%}
+{%- liquid
+  assign s = style | default: 'sage'
+  assign v = product.selected_or_first_available_variant
+  assign mf = product.metafields.custom
+-%}
+<div class="pcard pcard--{{ s }} pcard--grid">
+  <a href="{{ product.url }}" class="pcard__media">
+    {{ product.featured_image | image_url: width: 900 | image_tag: alt: product.featured_image.alt, loading: 'lazy' }}
+    {%- if mf.badge != blank -%}<span class="chip chip--deep pcard__badge">{{ mf.badge }}</span>{%- endif -%}
+  </a>
+  <div class="pcard__body">
+    {%- if mf.use_case != blank -%}<span class="eyebrow">{{ mf.use_case }}</span>{%- endif -%}
+    <a href="{{ product.url }}" class="pcard__title">{{ product.title }}</a>
+    {%- if mf.short != blank -%}<p>{{ mf.short }}</p>{%- endif -%}
+    <span class="pcard__foot">
+      <span>{% if product.variants.size > 1 %}de la {% endif %}{{ product.price | money }}</span>
+      {%- if product.variants.size > 1 -%}
+        <a href="{{ product.url }}" class="pill-price">Alege mărimea</a>
+      {%- else -%}
+        <button type="button" class="pill-price" data-quick-add="{{ v.id }}" {% unless v.available %}disabled{% endunless %}>+ Adaugă</button>
+      {%- endif -%}
+    </span>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<section class="wrap pad-lg stack-lg" id="{{ section.settings.anchor }}">
+  <div class="section-head">
+    <h2 class="h-xl">{{ section.settings.heading }} {% if section.settings.heading_italic != blank %}<em>{{ section.settings.heading_italic }}</em>{% endif %}</h2>
+    {%- if section.settings.link != blank -%}<a href="{{ section.settings.link }}" class="link-strong">{{ section.settings.link_label }} →</a>{%- endif -%}
+  </div>
+  <div class="card-row">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign p = block.settings.product
+        assign url = block.settings.link
+        if url == blank and p != blank
+          assign url = p.url
+        endif
+        assign price_label = block.settings.price_label
+        if price_label == blank and p != blank
+          assign price_label = p.price | money | prepend: 'de la '
+        endif
+      -%}
+      <a href="{{ url }}" class="pcard pcard--{{ block.settings.style }}" {{ block.shopify_attributes }}>
+        <div class="pcard__media{% if block.settings.contain %} pcard__media--white{% endif %}">
+          {%- if block.settings.image != blank or block.settings.fallback_asset != blank -%}
+            {%- render 'kimg', image: block.settings.image, fallback: block.settings.fallback_asset, alt: block.settings.title, width: 900 -%}
+          {%- elsif p != blank -%}
+            {{ p.featured_image | image_url: width: 900 | image_tag: alt: p.title }}
+          {%- endif -%}
+          {%- if block.settings.badge != blank -%}<span class="chip chip--deep pcard__badge">{{ block.settings.badge }}</span>{%- endif -%}
+        </div>
+        <div class="pcard__body">
+          <span class="eyebrow">{{ block.settings.eyebrow }}</span>
+          <span class="pcard__title">{{ block.settings.title | default: p.title }}</span>
+          <p>{{ block.settings.text }}</p>
+          <span class="pcard__foot">
+            <span>{{ block.settings.sizes }}</span>
+            <span class="pill-price">{{ price_label }}</span>
+          </span>
+        </div>
+      </a>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trei produse",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Ancoră (id)", "default": "produse" },
+    { "type": "text", "id": "heading", "label": "Titlu", "default": "Ce gătești azi?" },
+    { "type": "text", "id": "heading_italic", "label": "Titlu (italic)", "default": "Alege după asta." },
+    { "type": "text", "id": "link_label", "label": "Text link", "default": "Tot magazinul" },
+    { "type": "url", "id": "link", "label": "Link", "default": "/collections/all" }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Produs",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Produs" },
+        { "type": "url", "id": "link", "label": "Link (dacă nu e produs)" },
+        { "type": "select", "id": "style", "label": "Culoare card", "default": "sage", "options": [ { "value": "sage", "label": "Verde pal" }, { "value": "fresh", "label": "Verde proaspăt" }, { "value": "deep", "label": "Verde închis" } ] },
+        { "type": "image_picker", "id": "image", "label": "Imagine" },
+        { "type": "text", "id": "fallback_asset", "label": "Imagine din temă (fallback)" },
+        { "type": "checkbox", "id": "contain", "label": "Fundal alb (packshot)", "default": false },
+        { "type": "text", "id": "badge", "label": "Etichetă" },
+        { "type": "text", "id": "eyebrow", "label": "Folosință", "default": "Pentru stropit" },
+        { "type": "text", "id": "title", "label": "Titlu" },
+        { "type": "textarea", "id": "text", "label": "Descriere" },
+        { "type": "text", "id": "sizes", "label": "Mărimi" },
+        { "type": "text", "id": "price_label", "label": "Text preț (suprascrie prețul)" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [ { "name": "Trei produse" } ]
+}
+{% endschema %}

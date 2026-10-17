@@ -1,0 +1,25 @@
+<section class="wrap pad-sm">
+  <div class="page-hero">
+    {%- render 'kimg', image: section.settings.image, fallback: section.settings.fallback_asset, alt: section.settings.image_alt, eager: true, width: 2000 -%}
+    <div class="page-hero__copy">
+      <span class="chip chip--fresh">{{ section.settings.eyebrow }}</span>
+      <h1 class="display">{{ section.settings.heading | default: page.title }}</h1>
+      {%- if section.settings.text != blank -%}<p class="lead">{{ section.settings.text }}</p>{%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero pagină",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Imagine" },
+    { "type": "text", "id": "fallback_asset", "label": "Imagine din temă (fallback)", "default": "ai-olive-grove.jpg" },
+    { "type": "text", "id": "image_alt", "label": "Text alternativ", "default": "Livada de măslini din Messinia" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Povestea Kaladi" },
+    { "type": "textarea", "id": "heading", "label": "Titlu" },
+    { "type": "textarea", "id": "text", "label": "Text" }
+  ],
+  "presets": [ { "name": "Hero pagină" } ]
+}
+{% endschema %}

@@ -1,0 +1,54 @@
+{%- liquid
+  assign styles = 'sage,fresh,deep,sage' | split: ','
+  assign sort = collection.sort_by | default: collection.default_sort_by
+-%}
+<section class="wrap pad-md stack-lg">
+  <div class="panel panel--fresh col-hero">
+    <div class="stack-md">
+      <span class="chip chip--deep">{{ section.settings.eyebrow }}</span>
+      <h1 class="display display--sm">{{ collection.title }}</h1>
+      {%- if collection.description != blank -%}<div class="lead">{{ collection.description }}</div>{%- endif -%}
+    </div>
+    <div class="col-hero__guide">
+      {%- for block in section.blocks -%}
+        <a href="{{ block.settings.link }}" class="guide" {{ block.shopify_attributes }}>
+          <strong>{{ block.settings.title }}</strong><span>{{ block.settings.text }}</span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <span><strong>{{ collection.products_count }}</strong> produse</span>
+    <label class="toolbar__sort">Sortează
+      <select data-sort>
+        {%- for option in collection.sort_options -%}
+          <option value="{{ option.value }}" {% if option.value == sort %}selected{% endif %}>{{ option.name }}</option>
+        {%- endfor -%}
+      </select>
+    </label>
+  </div>
+
+  {%- paginate collection.products by 12 -%}
+    <div class="grid-products">
+      {%- for product in collection.products -%}
+        {%- assign i = forloop.index0 | modulo: 4 -%}
+        {%- render 'product-card', product: product, style: styles[i] -%}
+      {%- else -%}
+        <p>Nu sunt produse în această colecție încă.</p>
+      {%- endfor -%}
+    </div>
+    {%- if paginate.pages > 1 -%}<nav class="pager" aria-label="Pagini">{{ paginate | default_pagination }}</nav>{%- endif -%}
+  {%- endpaginate -%}
+</section>
+
+{% schema %}
+{
+  "name": "Colecție",
+  "settings": [ { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Magazin" } ],
+  "blocks": [
+    { "type": "guide", "name": "Ghid de alegere", "settings": [ { "type": "text", "id": "title", "label": "Titlu" }, { "type": "text", "id": "text", "label": "Text" }, { "type": "url", "id": "link", "label": "Link" } ] }
+  ],
+  "max_blocks": 3
+}
+{% endschema %}

@@ -1,0 +1,19 @@
+{
+  "name": "kaladi-theme",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "node dev/server.mjs",
+    "shopify:dev": "shopify theme dev",
+    "shopify:check": "shopify theme check",
+    "build:static": "node dev/build-static.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "liquidjs": "^10.30.0"
+  },
+  "private": true
+}

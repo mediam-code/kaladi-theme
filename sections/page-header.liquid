@@ -1,0 +1,33 @@
+<section class="wrap pad-sm">
+  <div class="panel panel--{{ section.settings.style }} page-header">
+    <div class="stack-md page-header__copy">
+      {%- if section.settings.eyebrow != blank -%}<span class="chip {% if section.settings.style == 'deep' %}chip--fresh{% else %}chip--deep{% endif %}">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h1 class="display display--sm">{{ section.settings.heading | default: page.title | default: blog.title }}</h1>
+      {%- if section.settings.text != blank -%}<p class="lead">{{ section.settings.text }}</p>{%- endif -%}
+      {%- if section.settings.cta_label != blank -%}<a href="{{ section.settings.cta_link }}" class="btn btn--lg {% if section.settings.style == 'deep' %}btn--fresh{% else %}btn--deep{% endif %}">{{ section.settings.cta_label }}</a>{%- endif -%}
+    </div>
+    {%- if section.settings.image != blank or section.settings.fallback_asset != blank -%}
+      <div class="page-header__media">
+        {%- render 'kimg', image: section.settings.image, fallback: section.settings.fallback_asset, alt: section.settings.image_alt, eager: true, width: 1200 -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Antet pagină",
+  "settings": [
+    { "type": "select", "id": "style", "label": "Culoare", "default": "fresh", "options": [ { "value": "fresh", "label": "Verde proaspăt" }, { "value": "sage", "label": "Verde pal" }, { "value": "deep", "label": "Verde închis" } ] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "textarea", "id": "heading", "label": "Titlu (gol = titlul paginii)" },
+    { "type": "textarea", "id": "text", "label": "Text" },
+    { "type": "text", "id": "cta_label", "label": "Buton" },
+    { "type": "url", "id": "cta_link", "label": "Link buton" },
+    { "type": "image_picker", "id": "image", "label": "Imagine (opțional)" },
+    { "type": "text", "id": "fallback_asset", "label": "Imagine din temă" },
+    { "type": "text", "id": "image_alt", "label": "Text alternativ" }
+  ],
+  "presets": [ { "name": "Antet pagină" } ]
+}
+{% endschema %}

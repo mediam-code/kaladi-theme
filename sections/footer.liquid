@@ -1,0 +1,37 @@
+<footer class="wrap pad-sm">
+  <div class="panel panel--deep footer stack-lg">
+    <div class="footer__top">
+      <div class="stack-sm footer__news">
+        <strong class="h-sm">{{ section.settings.newsletter_title }}</strong>
+        {%- form 'customer', class: 'inline-form inline-form--paper' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <label for="nl-{{ section.id }}" class="sr">Email pentru newsletter</label>
+          <input id="nl-{{ section.id }}" type="email" name="contact[email]" placeholder="adresa ta de email" required>
+          <button type="submit" class="btn btn--fresh">Abonează-mă</button>
+        {%- endform -%}
+      </div>
+      <div class="footer__cols">
+        <div><strong>Magazin</strong><a href="/products/olivi-sticla">Ulei în sticlă</a><a href="/products/rezerva-familiei">Rezerva familiei</a><a href="/#recolta">Recolta nouă</a><a href="/products/set-cadou-kaladi">Seturi cadou</a></div>
+        <div><strong>Kaladi</strong><a href="/pages/povestea">Povestea</a><a href="/blogs/jurnal">Jurnal</a><a href="/pages/cadouri-corporate">Pentru firme</a></div>
+        <div><strong>Ajutor</strong><a href="/pages/livrare-retur">Livrare și retur</a><a href="/account">Abonamentul meu</a><a href="/pages/contact">Contact</a><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a><a href="tel:{{ section.settings.phone | remove: ' ' }}">{{ section.settings.phone }}</a></div>
+      </div>
+    </div>
+    <div class="footer__word">{{ shop.name | upcase }}</div>
+    <div class="footer__legal">
+      <span>© {{ 'now' | date: '%Y' }} {{ section.settings.company }}</span>
+      <span><a href="/policies/terms-of-service">Termeni</a> · <a href="/policies/privacy-policy">Confidențialitate</a> · <a href="https://anpc.ro" rel="noopener">ANPC</a> · <a href="https://ec.europa.eu/consumers/odr" rel="noopener">SOL</a></span>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "text", "id": "newsletter_title", "label": "Titlu newsletter", "default": "Află primul când se presează uleiul." },
+    { "type": "text", "id": "email", "label": "Email", "default": "office@kaladi.ro" },
+    { "type": "text", "id": "phone", "label": "Telefon", "default": "0722 309 937" },
+    { "type": "text", "id": "company", "label": "Firmă", "default": "Aside MCD S.R.L. · CUI [—] · Corbeanca, Ilfov" }
+  ]
+}
+{% endschema %}

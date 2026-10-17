@@ -1,0 +1,30 @@
+<section class="wrap pad-lg stack-md">
+  <h2 class="h-lg">{{ section.settings.heading }}</h2>
+  <div class="card-row">
+    {%- for block in section.blocks -%}
+      {%- assign p = block.settings.product -%}
+      {%- if p != blank -%}
+        <div class="mini mini--{{ block.settings.style }}" {{ block.shopify_attributes }}>
+          <a href="{{ p.url }}" class="mini__media">{{ p.featured_image | image_url: width: 700 | image_tag: alt: p.title }}</a>
+          <a href="{{ p.url }}" class="mini__title">{{ p.title }}</a>
+          <div class="mini__foot">
+            <span>{{ p.price | money }}</span>
+            <button type="button" class="btn btn--sm {% if block.settings.style == 'deep' %}btn--fresh{% else %}btn--deep{% endif %}" data-quick-add="{{ p.selected_or_first_available_variant.id }}">+ Adaugă</button>
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Completează coșul",
+  "settings": [ { "type": "text", "id": "heading", "label": "Titlu", "default": "Completează coșul" } ],
+  "blocks": [
+    { "type": "product", "name": "Produs", "settings": [ { "type": "product", "id": "product", "label": "Produs" }, { "type": "select", "id": "style", "label": "Culoare", "default": "sage", "options": [ { "value": "sage", "label": "Verde pal" }, { "value": "fresh", "label": "Verde proaspăt" }, { "value": "deep", "label": "Verde închis" } ] } ] }
+  ],
+  "max_blocks": 4,
+  "presets": [ { "name": "Completează coșul" } ]
+}
+{% endschema %}

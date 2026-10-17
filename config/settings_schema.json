@@ -1,0 +1,176 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Kaladi",
+    "theme_version": "0.1.0",
+    "theme_author": "Kaladi",
+    "theme_documentation_url": "https://kaladi.ro",
+    "theme_support_url": "https://kaladi.ro"
+  },
+  {
+    "name": "Culori",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_fresh",
+        "label": "Verde proaspăt (accent)",
+        "default": "#D3E36A"
+      },
+      {
+        "type": "color",
+        "id": "color_deep",
+        "label": "Verde închis (text, fundaluri)",
+        "default": "#14301E"
+      },
+      {
+        "type": "color",
+        "id": "color_paper",
+        "label": "Fundal pagină",
+        "default": "#FBFAF3"
+      },
+      {
+        "type": "color",
+        "id": "color_sage",
+        "label": "Verde pal (carduri)",
+        "default": "#E9EEDA"
+      },
+      {
+        "type": "color",
+        "id": "color_gold",
+        "label": "Auriu (logo, medalii)",
+        "default": "#C9AE6A"
+      }
+    ]
+  },
+  {
+    "name": "Tipografie",
+    "settings": [
+      {
+        "type": "select",
+        "id": "font_pairing",
+        "label": "Pereche de fonturi",
+        "default": "fraunces",
+        "options": [
+          {
+            "value": "archivo",
+            "label": "Archivo Expanded + Newsreader"
+          },
+          {
+            "value": "bricolage",
+            "label": "Bricolage Grotesque + Instrument Serif"
+          },
+          {
+            "value": "fraunces",
+            "label": "Fraunces Soft/Wonky + Figtree (implicit)"
+          },
+          {
+            "value": "unbounded",
+            "label": "Unbounded + Figtree"
+          },
+          {
+            "value": "syne",
+            "label": "Syne + Manrope"
+          },
+          {
+            "value": "shrikhand",
+            "label": "Shrikhand + DM Sans"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Coș și livrare",
+    "settings": [
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Prag livrare gratuită (lei)",
+        "default": 200
+      },
+      {
+        "type": "text",
+        "id": "shipping_note",
+        "label": "Mesaj livrare",
+        "default": "24–48 h · easybox"
+      },
+      {
+        "type": "product",
+        "id": "cart_upsell",
+        "label": "Produs recomandat în coș"
+      }
+    ]
+  },
+  {
+    "name": "Popup bun venit",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "popup_enabled",
+        "label": "Activează popup-ul",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "popup_code",
+        "label": "Cod de reducere (creat în Discounts)",
+        "default": "BUNVENIT10"
+      },
+      {
+        "type": "text",
+        "id": "popup_badge",
+        "label": "Valoare afișată",
+        "default": "−10%"
+      },
+      {
+        "type": "text",
+        "id": "popup_eyebrow",
+        "label": "Eyebrow",
+        "default": "Bun venit în familie"
+      },
+      {
+        "type": "text",
+        "id": "popup_heading",
+        "label": "Titlu",
+        "default": "10% la prima ta sticlă."
+      },
+      {
+        "type": "textarea",
+        "id": "popup_text",
+        "label": "Text",
+        "default": "Lasă-ne emailul și primești codul pe loc. În plus, afli primul când se presează recolta nouă."
+      },
+      {
+        "type": "text",
+        "id": "popup_button",
+        "label": "Buton",
+        "default": "Vreau codul"
+      },
+      {
+        "type": "image_picker",
+        "id": "popup_image",
+        "label": "Imagine"
+      },
+      {
+        "type": "range",
+        "id": "popup_delay",
+        "label": "Apare după (secunde)",
+        "min": 3,
+        "max": 60,
+        "step": 1,
+        "unit": "s",
+        "default": 8
+      },
+      {
+        "type": "range",
+        "id": "popup_days",
+        "label": "Nu mai apare timp de (zile) după închidere",
+        "min": 1,
+        "max": 60,
+        "step": 1,
+        "unit": "z",
+        "default": 14
+      }
+    ]
+  }
+]

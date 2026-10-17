@@ -1,0 +1,77 @@
+{%- comment -%}
+  Popup de bun venit: email → cod de reducere pentru prima comandă.
+  - Clientul e salvat în Shopify cu tag-urile „newsletter, popup-bun-venit” (se poate sincroniza cu Klaviyo).
+  - Codul se creează în admin: Discounts › BUNVENIT10, 10%, o singură folosire per client.
+  - Apare după X secunde, la intenția de ieșire (desktop) sau la 50% scroll (mobil). O dată la N zile.
+{%- endcomment -%}
+{%- if settings.popup_enabled -%}
+{%- liquid
+  assign code = settings.popup_code | default: 'BUNVENIT10'
+  assign hide = false
+  if template.name == 'cart' or template.name == 'password'
+    assign hide = true
+  endif
+  if customer and customer.accepts_marketing
+    assign hide = true
+  endif
+-%}
+{%- unless hide -%}
+<div class="wpop" data-wpop data-delay="{{ settings.popup_delay | default: 8 }}" data-days="{{ settings.popup_days | default: 14 }}" hidden>
+  <div class="wpop__overlay" data-wpop-close></div>
+  <div class="wpop__dialog" role="dialog" aria-modal="true" aria-labelledby="wpop-title">
+    <button type="button" class="wpop__close" data-wpop-close aria-label="Închide">
+      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+
+    <div class="wpop__media">
+      {%- render 'kimg', image: settings.popup_image, fallback: 'ai-oil-bread.jpg', alt: 'Ulei de măsline turnat pe pâine prăjită', width: 900 -%}
+      <span class="wpop__stamp" aria-hidden="true">
+        <small>Prima comandă</small>
+        <strong>{{ settings.popup_badge | default: '−10%' }}</strong>
+      </span>
+    </div>
+
+    <div class="wpop__body">
+      {%- comment -%} Pasul 1: email {%- endcomment -%}
+      <div class="wpop__step" data-wpop-step="1">
+        <span class="chip chip--fresh">{{ settings.popup_eyebrow }}</span>
+        <h2 id="wpop-title" class="wpop__title">{{ settings.popup_heading }}</h2>
+        <p class="wpop__text">{{ settings.popup_text }}</p>
+        {%- form 'customer', class: 'wpop__form', data-wpop-form: '' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter,popup-bun-venit">
+          <label for="wpop-email" class="sr">Adresa de email</label>
+          <div class="wpop__field">
+            <input id="wpop-email" type="email" name="contact[email]" placeholder="adresa ta de email" autocomplete="email" required>
+            <button type="submit" class="btn btn--deep" data-wpop-submit>{{ settings.popup_button }}</button>
+          </div>
+          <label class="consent wpop__consent">
+            <input type="checkbox" name="contact[accepts_marketing]" value="true" required>
+            <span>Vreau emailuri despre recoltă și oferte. Mă pot dezabona oricând. <a href="/policies/privacy-policy">Confidențialitate</a></span>
+          </label>
+          <p class="wpop__error" data-wpop-error hidden>Ceva n-a mers. Încearcă din nou.</p>
+        {%- endform -%}
+        <button type="button" class="wpop__skip" data-wpop-close>Nu, mulțumesc</button>
+      </div>
+
+      {%- comment -%} Pasul 2: codul {%- endcomment -%}
+      <div class="wpop__step" data-wpop-step="2" hidden>
+        <span class="chip chip--fresh">Gata, ești pe listă</span>
+        <h2 class="wpop__title">Codul tău e aici.</h2>
+        <p class="wpop__text">Îl folosești la prima comandă. Ți l-am trimis și pe email.</p>
+        <div class="wpop__code">
+          <code data-wpop-code>{{ code }}</code>
+          <button type="button" class="btn btn--sm btn--paper" data-wpop-copy>Copiază</button>
+        </div>
+        <a href="/discount/{{ code }}?redirect=/collections/all" class="btn btn--deep btn--lg btn--block">Aplică reducerea și cumpără</a>
+        <button type="button" class="wpop__skip" data-wpop-close>Continui mai târziu</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="button" class="wpop-teaser" data-wpop-teaser hidden>
+  <strong>{{ settings.popup_badge | default: '−10%' }}</strong>
+  <span>la prima comandă</span>
+</button>
+{%- endunless -%}
+{%- endif -%}
